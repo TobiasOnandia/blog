@@ -1,6 +1,6 @@
 export const Sidebar = () => {
     return (
-        <aside className="px-4 py-12  w-fit">
+        <aside className="px-4 py-12 max-w-7xl   w-fit">
             <nav>
                 <ul className="*:hover:text-sky-700 space-y-4">
                     <li>

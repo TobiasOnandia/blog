@@ -19,7 +19,7 @@ export const Posts = [
 
 export const Main = () => {
     return (
-        <main className="grid grid-cols-3 gap-4 border   mx-8 place-content-center">
+        <main className="grid grid-cols-3 gap-4 border max-w-7xl   place-content-center">
             {Posts.map((post) => (
                 <figure key={post.id} className="bg-neutral-50 h-fit border border-neutral-200 w-full p-4">
                     <img src="#" alt="foto" />

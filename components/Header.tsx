@@ -14,7 +14,7 @@ export const NavItems = [
 
 export const Header = () => {
   return (
-    <header className="flex col-span-2 items-center gap-12  justify-between border-b border-neutral-200 py-4">
+    <header className="flex col-span-2  items-center gap-12  justify-between border-b border-neutral-200 py-4">
       <h1 className="text-2xl px-4">Blog</h1>
       <nav className="flex-1 px-4">
         <ul

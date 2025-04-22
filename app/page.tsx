@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="bg-neutral-50 grid grid-cols-2 max-w-2xl h-screen w-full text-neutral-950">
+    <div className="bg-neutral-50 grid grid-cols-2  h-screen w-full text-neutral-950">
       <Header />  
       <Hero />
       <Sidebar />
