@@ -30,7 +30,7 @@ export function PostCreator() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-2 p-4 border rounded"
+      className="flex flex-col gap-2 p-4 border rounded "
     >
       <input
         type="text"

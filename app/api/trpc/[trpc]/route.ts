@@ -3,7 +3,6 @@ import { createTRPCContext } from "@/server/trpc";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";
 import { type NextRequest } from "next/server";
 
-// Asegúrate de que el contexto se cree correctamente pasando las cabeceras
 const createContext = async (req: NextRequest) => {
   return createTRPCContext({
     headers: req.headers,
