@@ -1,4 +1,3 @@
-// src/app/api/trpc/[trpc]/route.ts
 import { appRouter } from "@/server/routers/_app";
 import { createTRPCContext } from "@/server/trpc";
 import { fetchRequestHandler } from "@trpc/server/adapters/fetch";

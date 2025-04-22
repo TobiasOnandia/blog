@@ -1,21 +1,19 @@
-// src/app/components/PostCreator.tsx (Ejemplo)
 "use client";
 
 import { trpc } from "@/utils/trpc";
 import { useState } from "react";
 
 export function PostCreator() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
+  const [post, setPost] = useState({
+    title: "",
+    content: "",
+  });
 
-  const utils = trpc.useUtils(); // Para invalidar caché
+  const utils = trpc.useUtils();
 
   const createPostMutation = trpc.post.create.useMutation({
     onSuccess: () => {
-      // Limpiar formulario
-      setTitle("");
-      setContent("");
-      // Invalidar la query de la lista de posts para refrescar
+      setPost({ title: "", content: "" });
       utils.post.list.invalidate();
       alert("¡Post creado!");
     },
@@ -26,7 +24,7 @@ export function PostCreator() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    createPostMutation.mutate({ title, content });
+    createPostMutation.mutate({ title: post.title, content: post.content });
   };
 
   return (
@@ -37,15 +35,15 @@ export function PostCreator() {
       <input
         type="text"
         placeholder="Título"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={post.title}
+        onChange={(e) => setPost({ ...post, title: e.target.value })}
         className="border p-2 rounded"
         disabled={createPostMutation.isPending}
       />
       <textarea
         placeholder="Contenido"
-        value={content}
-        onChange={(e) => setContent(e.target.value)}
+        value={post.content}
+        onChange={(e) => setPost({ ...post, content: e.target.value })}
         className="border p-2 rounded"
         disabled={createPostMutation.isPending}
       />
