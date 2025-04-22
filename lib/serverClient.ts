@@ -13,8 +13,7 @@ import { headers } from "next/headers"; // Para obtener cabeceras en RSC
 // Nota: Crear contexto aquí puede ser complejo si depende mucho de la request
 // Es más simple si tu contexto solo necesita, por ej, la DB.
 
-// Vamos a usar createCaller que es más directo si el contexto es manejable
 export const createServerCaller = async () => {
-  const context = await createTRPCContext({ headers: headers() });
+  const context = await createTRPCContext({ headers: await headers() });
   return appRouter.createCaller(context);
 };
