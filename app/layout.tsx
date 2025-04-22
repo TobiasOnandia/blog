@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Courier_Prime } from "next/font/google";
 import "./globals.css";
+import TRPCProvider from "@/utils/Provider";
 
 const geistSans = Courier_Prime({
   weight: ["400", "700"],
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>{children}</body>
+      <body className={`${geistSans.variable} antialiased`}>
+        <TRPCProvider>{children}</TRPCProvider>
+      </body>
     </html>
   );
 }
