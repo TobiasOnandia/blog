@@ -21,6 +21,9 @@
 body {
   background: var(--foreground);
   color: var(--foreground);
+  background-color: #fffcfc;
+  background-image: url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 
   font-family: "Courier Prime", Helvetica, sans-serif;
 }
