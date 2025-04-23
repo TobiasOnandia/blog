@@ -4,6 +4,8 @@ import superjson from "superjson";
 import { ZodError } from "zod";
 import { prisma } from "@/lib/prisma"; // Importa tu singleton
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { createClient } from "@/utils/supabase/server";
+import { cookies } from "next/headers";
 // Importa tu lógica de autenticación (ej: Clerk, NextAuth, Supabase Auth)
 // import { getAuth } from '@clerk/nextjs/server';
 // import { getServerSession } from 'next-auth';
@@ -11,11 +13,9 @@ import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
 
 // Define tu contexto - aquí pasas cosas como la DB, sesión de usuario, etc.
 export const createTRPCContext = async (opts: { headers: Headers }) => {
-  // Ejemplo básico: pasar prisma
-  // Ejemplo con Auth: const session = await getServerSession(authOptions);
-  // Ejemplo con Clerk: const { session, userId } = getAuth(opts);
-
-  const user = null; // Reemplaza con tu lógica de sesión
+  const cookiesStore = cookies();
+  const supabase = createClient(cookiesStore);
+  const user = await supabase.auth.getUser();
 
   return {
     prisma,
