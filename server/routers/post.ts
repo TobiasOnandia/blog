@@ -13,7 +13,6 @@ function generateSlug(title: string): string {
     .replace(/-+/g, "-"); // Replace multiple hyphens with a single hyphen
 }
 export const postRouter = router({
-  // Procedimiento público para listar posts
   list: publicProcedure
     .input(
       z

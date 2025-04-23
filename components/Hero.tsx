@@ -1,8 +1,26 @@
 export const Hero = () => {
-    return (
-        <section className="py-12 max-w-7xl  col-span-2 border px-4 border-neutral-200">
-            <h2 className="uppdercase text-4xl font-black">Comparte tus mejores ideas</h2>
-            <p className="max-w-xl ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam dicta est quasi fuga esse? Perferendis ab libero in dolorum quae quam mollitia, dignissimos repellendus facere maxime quibusdam alias unde iusto!</p>
-        </section>
-    )
-} 
+  return (
+    <section className="py-8">
+      {/* Headline principal */}
+      <h2 className="text-5xl font-bold leading-tight mb-6">
+        Comparte tus mejores ideas
+        <span className="block mt-2 text-3xl font-normal italic">
+          Reflexiones para mentes curiosas
+        </span>
+      </h2>
+
+      {/* Divider decorativo */}
+      <div className="my-8 h-1 bg-gray-300 w-1/4" />
+
+      {/* Cuerpo de texto */}
+      <p className="text-lg text-gray-700 leading-relaxed text-justify ">
+        En un mundo saturado de información, las verdaderas ideas persisten.
+        Este espacio está dedicado a aquellos pensamientos que merecen
+        trascender lo efímero.
+        <span className="font-semibold">
+          Escribe con propósito, comparte con convicción.
+        </span>
+      </p>
+    </section>
+  );
+};

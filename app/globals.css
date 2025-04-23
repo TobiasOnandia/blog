@@ -19,7 +19,8 @@
 }
 
 body {
-  background: var(--background);
+  background: var(--foreground);
   color: var(--foreground);
+
   font-family: "Courier Prime", Helvetica, sans-serif;
 }

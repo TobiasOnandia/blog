@@ -6,12 +6,13 @@ import { Sidebar } from "@/components/Sidebar";
 
 export default function Home() {
   return (
-    <div className="bg-neutral-50 grid grid-cols-2  h-screen w-full text-neutral-950">
+    <div className="max-w-11/12 mx-auto min-h-screen w-full text-neutral-950">
       <Header />
       <Hero />
-      <Sidebar />
-      <PostCreator />
-      <Main />
+      <section className="flex w-full gap-4 border-t border-black/20 ">
+        <Sidebar />
+        <Main />
+      </section>
     </div>
   );
 }
