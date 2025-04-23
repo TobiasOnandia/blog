@@ -2,7 +2,16 @@
 import { z } from "zod";
 import { router } from "@/server/trpc";
 import { publicProcedure, protectedProcedure } from "@/server/trpc";
-
+import { TRPCError } from "@trpc/server";
+// Function to generate a slug from a title
+function generateSlug(title: string): string {
+  return title
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-"); // Replace multiple hyphens with a single hyphen
+}
 export const postRouter = router({
   // Procedimiento público para listar posts
   list: publicProcedure
@@ -48,16 +57,32 @@ export const postRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
+      // Verify user is authenticated and has an ID
+      if (!ctx.user?.id) {
+        throw new TRPCError({
+          code: "UNAUTHORIZED",
+          message: "You must be logged in to create a post",
+        });
+      }
+
+      const userId = ctx.user.id;
+
+      // Generate base slug from title
+      let baseSlug = generateSlug(input.title);
+
+      // Ensure uniqueness by appending timestamp if needed
+      const timestamp = Date.now().toString().slice(-6);
+      const slug = `${baseSlug}-${timestamp}`;
+
       const post = await ctx.prisma.post.create({
         data: {
           title: input.title,
           content: input.content,
-          authorId: ctx.user.id, // Asume que user.id está en el contexto
-          published: true, // O como lo manejes
+          authorId: userId,
+          published: true,
+          slug: slug, // Add the generated slug
         },
       });
       return post;
     }),
-
-  //... otros procedimientos (getById, update, delete, addComment, vote, etc.)
 });

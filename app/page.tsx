@@ -10,8 +10,8 @@ export default function Home() {
       <Header />
       <Hero />
       <Sidebar />
+      <PostCreator />
       <Main />
-      {/* <PostCreator /> */}
     </div>
   );
 }

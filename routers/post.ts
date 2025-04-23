@@ -4,12 +4,10 @@ import { router } from "@/server/trpc";
 import { publicProcedure, protectedProcedure } from "@/server/trpc";
 
 export const postRouter = router({
-  // Procedimiento público para listar posts
   list: publicProcedure
     .input(
       z
         .object({
-          // Ejemplo de input con Zod
           limit: z.number().min(1).max(100).nullish(),
           cursor: z.string().cuid().nullish(), // cursor-based pagination
         })
@@ -48,16 +46,17 @@ export const postRouter = router({
       })
     )
     .mutation(async ({ ctx, input }) => {
+      const postData: any = {
+        title: input.title,
+        content: input.content,
+        published: true, // O como lo manejes
+      };
+      if (ctx.user.data.user?.id !== undefined) {
+        postData.authorId = ctx.user.data.user.id;
+      }
       const post = await ctx.prisma.post.create({
-        data: {
-          title: input.title,
-          content: input.content,
-          authorId: ctx.user.data.user?.id, // Asume que user.id está en el contexto
-          published: true, // O como lo manejes
-        },
+        data: postData,
       });
       return post;
     }),
-
-  //... otros procedimientos (getById, update, delete, addComment, vote, etc.)
 });
