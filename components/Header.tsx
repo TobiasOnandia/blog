@@ -77,7 +77,7 @@ export const Header = () => {
               {user ? (
                 <button
                   onClick={() => supabase.auth.signOut()}
-                  className="text-sm hover:underline decoration-black/50"
+                  className="cursor-pointer text-sm hover:underline decoration-black/50"
                 >
                   Cerrar sesión
                 </button>
