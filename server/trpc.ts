@@ -116,18 +116,3 @@ const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
 });
 
 export const protectedProcedure = t.procedure.use(enforceUserIsAuthed);
-
-// --- Recordatorio importante ---
-// Asegúrate que tu modelo `User` en `schema.prisma` use un `id` de tipo String
-// para que coincida con el UUID de Supabase Auth:
-//
-// model User {
-//   id    String  @id // <- Tipo String para UUID de Supabase
-//   email String? @unique
-//   name  String?
-//   // avatarUrl String? // Si lo agregas
-//   // lastLoginAt DateTime? // Si lo agregas
-//   posts Post[]  // Relación con Posts
-//
-//   @@map("users") // Opcional: nombre explícito de la tabla
-// }

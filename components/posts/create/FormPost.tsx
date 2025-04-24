@@ -22,7 +22,7 @@ export const FormPost = () => {
         formData.entries()
       );
 
-      if (!title || !content) {
+      if (!title || !content || !category) {
         toast.error("Por favor, completa todos los campos");
         return;
       }
