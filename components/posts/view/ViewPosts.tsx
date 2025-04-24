@@ -80,7 +80,8 @@ export const ViewPosts = ({ post }: ViewPostsProps) => {
                 Tiempo de lectura: 5 min
               </p>
             </div>
-            <button
+            <a
+              href={`posts/${post.id}`}
               className="cursor-pointer text-sm uppercase tracking-widest px-2 
                               relative overflow-hidden
                               before:absolute before:bottom-0 before:left-0 before:w-full 
@@ -97,7 +98,7 @@ export const ViewPosts = ({ post }: ViewPostsProps) => {
                   ↓
                 </span>
               </span>
-            </button>
+            </a>
           </footer>
         </div>
       </section>

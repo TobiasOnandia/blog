@@ -21,17 +21,43 @@ model User {
   image         String?
   role          Role      @default(USER)
   posts         Post[]
+  comments      Comment[]
+  votes         Vote[]
 }
 
 model Post {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   title     String
   content   Json
   category  String
-  slug      String   @unique
-  published Boolean  @default(false)
+  slug      String    @unique
+  published Boolean   @default(false)
+  author    User?     @relation(fields: [authorId], references: [id])
+  authorId  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @default(now())
+  comments  Comment[]
+  votes     Vote[]
+}
+
+model Comment {
+  id              String   @id @default(cuid())
+  content         String
+  author          User?    @relation(fields: [authorId], references: [id])
+  authorId        String
+  post            Post?    @relation(fields: [postId], references: [id])
+  postId          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+  parentCommentId String?
+}
+
+model Vote {
+  id        String   @id @default(cuid())
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String
+  post      Post?    @relation(fields: [postId], references: [id])
+  postId    String
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }

@@ -140,6 +140,24 @@ exports.Prisma.PostScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.CommentScalarFieldEnum = {
+  id: 'id',
+  content: 'content',
+  authorId: 'authorId',
+  postId: 'postId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  parentCommentId: 'parentCommentId'
+};
+
+exports.Prisma.VoteScalarFieldEnum = {
+  id: 'id',
+  authorId: 'authorId',
+  postId: 'postId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -171,7 +189,9 @@ exports.Role = exports.$Enums.Role = {
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Post: 'Post'
+  Post: 'Post',
+  Comment: 'Comment',
+  Vote: 'Vote'
 };
 
 /**

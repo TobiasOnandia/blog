@@ -85,4 +85,16 @@ export const postRouter = router({
       });
       return post;
     }),
+
+  // Procedimiento para obtener un post por id
+
+  byId: publicProcedure
+    .input(z.string().cuid())
+    .query(async ({ ctx, input }) => {
+      const post = await ctx.prisma.post.findUnique({
+        where: { id: input },
+        include: { author: true }, // Incluir datos del autor
+      });
+      return post;
+    }),
 });
