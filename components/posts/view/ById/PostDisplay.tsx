@@ -1,7 +1,8 @@
 import { HeartIcon } from "@/components/icons";
 import { AppRouter } from "@/server/routers/_app";
 import { inferRouterOutputs } from "@trpc/server";
-import { Comments } from "../../comments/Comments";
+import { Comments } from "@/components/posts/comments/Comments";
+import { FormComment } from "@/components/posts/comments/create/FormComment";
 
 type RouterOutput = inferRouterOutputs<AppRouter>;
 type PostType = RouterOutput["post"]["byId"];
@@ -66,21 +67,7 @@ export const PostDisplay = ({ post }: PostDisplayProps) => {
         </h2>
 
         {/* Formulario de Comentarios (Necesitaría ser un Componente Cliente) */}
-        <form className="mb-12">
-          <textarea
-            className="w-full p-4 border border-black/20 mb-4 rounded focus:outline-none focus:ring-1 focus:ring-black/50"
-            placeholder="Escribe tu comentario..."
-            rows={3}
-            aria-label="Nuevo comentario"
-          />
-          <button
-            type="submit"
-            className="px-6 py-2 bg-black text-white uppercase tracking-widest text-sm hover:bg-gray-800 rounded transition-colors disabled:opacity-50"
-          >
-            Publicar comentario
-          </button>
-        </form>
-
+        <FormComment />
         {/* Aquí iría el mapeo de comentarios reales */}
         <Comments />
       </section>

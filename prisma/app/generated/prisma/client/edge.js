@@ -204,11 +204,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:2954270707Tobias@db.qdcytkiumqismqtesniz.supabase.co:5432/postgres"
+        "value": null
       }
     }
   },

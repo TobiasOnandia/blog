@@ -24,6 +24,7 @@ export const Header = () => {
           </span>
         </h1>
       </a>
+
       <div className="backdrop-blur-2xl absolute top-0 left-0 w-full h-full -z-10 " />
 
       {/* Navegación */}
