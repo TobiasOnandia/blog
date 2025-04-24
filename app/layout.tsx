@@ -4,6 +4,7 @@ import "./globals.css";
 import TRPCProvider from "@/utils/Provider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { Toaster } from "sonner";
 
 const geistSans = Courier_Prime({
   weight: ["400", "700"],
@@ -26,6 +27,8 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${geistSans.variable} antialiased `}>
         <TRPCProvider>
+          <Toaster richColors position="top-right" closeButton />
+
           <Header />
           {children}
           <Footer />

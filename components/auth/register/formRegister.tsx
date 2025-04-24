@@ -1,6 +1,7 @@
 "use client";
 import { createClient } from "@/utils/supabase/client";
 import { useActionState } from "react";
+import { toast } from "sonner";
 
 export const RegisterForm = () => {
   const [state, formAction, isPending] = useActionState(
@@ -9,7 +10,7 @@ export const RegisterForm = () => {
         formData.entries()
       );
       const supabase = createClient();
-      await supabase.auth.signUp({
+      const { error } = await supabase.auth.signUp({
         email: email as string,
         password: password as string,
         options: {
@@ -18,6 +19,12 @@ export const RegisterForm = () => {
           },
         },
       });
+
+      if (error) {
+        toast.error(error.message);
+      }
+
+      toast.success("Verificar correo electrónico");
     },
     null
   );

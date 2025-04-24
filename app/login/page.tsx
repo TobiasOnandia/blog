@@ -1,3 +1,4 @@
+import { FormLogin } from "@/components/auth/login/FormLogin";
 import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 
 export default function LoginPage() {
@@ -49,33 +50,7 @@ export default function LoginPage() {
             <h2 className="text-3xl font-bold uppercase mb-6 first-letter:text-sky-600">
               Acceso
             </h2>
-            <form className="space-y-6">
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Correo
-                <input
-                  type="email"
-                  className="w-full mt-1 px-4 py-3 border-2 border-black/20 hover:border-black/40 focus:border-black/60 transition-all"
-                  placeholder="redaccion@cronicas.com"
-                />
-              </label>
-
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Contraseña
-                <input
-                  type="password"
-                  className="w-full mt-1 px-4 py-3 border-2 border-black/20 hover:border-black/40 focus:border-black/60 transition-all"
-                  placeholder="••••••••"
-                />
-              </label>
-
-              <button
-                type="submit"
-                className="w-full py-3 bg-black text-white uppercase tracking-widest
-                            hover:bg-gray-800 transition-all duration-300 border-2 border-black"
-              >
-                Ingresar
-              </button>
-            </form>
+            <FormLogin />
             <div className="my-6 md:my-8 relative">
               <div className="absolute inset-0 flex items-center">
                 <div className="w-full border-t border-black/20"></div>
