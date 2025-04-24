@@ -26,9 +26,9 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${geistSans.variable} antialiased `}>
         <TRPCProvider>
-          {/* <Header /> */}
+          <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </TRPCProvider>
       </body>
     </html>

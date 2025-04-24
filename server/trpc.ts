@@ -37,7 +37,6 @@ export const createTRPCContext = async (
 
   if (supabaseUser) {
     try {
-      console.log(`Attempting upsert for Supabase user ID: ${supabaseUser.id}`);
       const upsertedUser = await prisma.user.upsert({
         where: { id: supabaseUser.id }, // Clave primaria debe ser el ID de Supabase Auth
         create: {
@@ -67,8 +66,6 @@ export const createTRPCContext = async (
       // Por ahora, solo logueamos el error.
     }
   }
-  // --- FIN DE LÓGICA DE UPSERT ---
-
   // Retorna el contexto con el usuario de Supabase (o null) y Prisma
   return {
     prisma,
