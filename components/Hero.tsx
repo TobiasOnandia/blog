@@ -1,6 +1,6 @@
 export const Hero = () => {
   return (
-    <section className="py-8">
+    <section className="py-24">
       {/* Headline principal */}
       <h2 className="text-5xl font-bold leading-tight mb-6">
         Comparte tus mejores ideas

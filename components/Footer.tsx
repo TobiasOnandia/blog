@@ -86,7 +86,7 @@ export const Footer = () => {
             </a>
           </div>
           <div className="text-center md:text-right space-y-1">
-            <p>© 2024 Crónicas Digitales</p>
+            <p>© 2025 Crónicas Digitales</p>
             <p className="text-xs">ISSN 0123-4567</p>
           </div>
         </div>

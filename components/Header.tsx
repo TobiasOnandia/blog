@@ -36,58 +36,52 @@ export const Header = () => {
   }
 
   return (
-    <header className="sticky top-0   border-black/20 py-6  font-courier-prime z-50">
-      <div className="flex items-center justify-between">
-        {/* Título estilo cabecera de periódico */}
-        <h1 className="text-lg flex-1 font-bold uppercase tracking-widest border-r border-black/20 pr-8">
-          Crónicas Digitales
-          <span className="block text-sm font-normal normal-case tracking-normal mt-1 text-gray-500">
-            Desde 2024
-          </span>
-        </h1>
+    <header className="sticky top-0 flex items-center justify-between  border-black/20 py-6  font-courier-prime z-50">
+      {/* Título estilo cabecera de periódico */}
+      <h1 className="text-lg flex-1 font-bold uppercase tracking-widest border-r border-black/20 pr-8">
+        Crónicas Digitales
+        <span className="block text-sm font-normal normal-case tracking-normal mt-1 text-gray-500">
+          Desde 2024
+        </span>
+      </h1>
 
-        {/* Navegación */}
-        <nav className="flex-1">
-          <ul className="flex justify-center items-center gap-8 text-sm uppercase tracking-wide">
-            {NavItems.map((item) => (
-              <li key={item.href}>
-                <a
-                  href={item.href}
-                  className="hover:underline decoration-2 decoration-black/50 transition-all duration-300"
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+      {/* Navegación */}
+      <nav className="flex-1">
+        <ul className="flex justify-center items-center gap-8 text-sm uppercase tracking-wide">
+          {NavItems.map((item) => (
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="hover:underline decoration-2 decoration-black/50 transition-all duration-300"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
 
-        {/* Sección usuario */}
-        <div className="flex-1 flex justify-end items-center gap-4">
-          <div className="text-right">
-            <p className="text-xs text-gray-500">
-              {new Date().toLocaleDateString("es-ES", {
-                weekday: "long",
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
-            </p>
-            <div className="border-t border-black/20 mt-2 pt-1">
-              {user ? (
-                <button
-                  onClick={() => supabase.auth.signOut()}
-                  className="cursor-pointer text-sm hover:underline decoration-black/50"
-                >
-                  Cerrar sesión
-                </button>
-              ) : (
-                <SignInWithGoogle />
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Sección usuario */}
+      <section className="flex-1 flex flex-col justify-end items-end text-right ">
+        <p className="text-xs mb-2 pb-1 border-b border-black/20 text-gray-500">
+          {new Date().toLocaleDateString("es-ES", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+        {user ? (
+          <button
+            onClick={() => supabase.auth.signOut()}
+            className="cursor-pointer text-sm hover:underline decoration-black/50"
+          >
+            Cerrar sesión
+          </button>
+        ) : (
+          <SignInWithGoogle />
+        )}
+      </section>
     </header>
   );
 };
