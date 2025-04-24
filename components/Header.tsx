@@ -1,4 +1,5 @@
 "use client";
+import { useUser } from "@/hooks/useUser";
 import { SignInWithGoogle } from "@/utils/SignInWithGoogle";
 import { createClient } from "@/utils/supabase/client";
 import { Session, User } from "@supabase/supabase-js";
@@ -12,28 +13,7 @@ export const NavItems = [
 ];
 
 export const Header = () => {
-  const [user, setUser] = useState<null | User>(null);
-  const [loading, setLoading] = useState(true);
-  const supabase = createClient();
-
-  useEffect(() => {
-    const handleAuthStateChange = (event: string, session: Session | null) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    };
-
-    const { data: authListener } = supabase.auth.onAuthStateChange(
-      handleAuthStateChange
-    );
-
-    return () => {
-      authListener?.subscription.unsubscribe();
-    };
-  }, []);
-
-  if (loading) {
-    return <header>Verificando...</header>;
-  }
+  const user = useUser();
 
   return (
     <header className="sticky top-0 flex items-center justify-between  border-black/20 py-6  font-courier-prime z-50">
