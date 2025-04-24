@@ -1,13 +1,12 @@
 "use client";
 import { useUser } from "@/hooks/useUser";
-import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 import { createClient } from "@/utils/supabase/client";
 
 export const NavItems = [
-  { label: "Home", href: "/", icons: {} },
+  { label: "Inicio", href: "/", icons: {} },
   { label: "Posts", href: "/posts", icons: {} },
-  { label: "New Post", href: "/posts/new", icons: {} },
-  { label: "Profile", href: "/profile", icons: {} },
+  { label: "Nuevo Post", href: "/posts/new", icons: {} },
+  { label: "Perfil", href: "/profile", icons: {} },
 ];
 
 export const Header = () => {
@@ -60,7 +59,12 @@ export const Header = () => {
             Cerrar sesión
           </button>
         ) : (
-          <SignInWithGoogle />
+          <a
+            href="/login"
+            className="text-sm hover:underline decoration-black/50"
+          >
+            Iniciar sesión
+          </a>
         )}
       </section>
     </header>

@@ -53,7 +53,7 @@ export const Main = () => {
           </header>
 
           {/* Cuerpo principal */}
-          <article className="space-y-4 border-b transition-all duration-300  group-hover:border-black/60 border-black/20 py-6">
+          <article className="space-y-4  border-b transition-all duration-300  group-hover:border-black/60 border-black/20 py-6">
             {/* Titular con subrayado animado */}
             <h3
               className="text-3xl font-bold leading-tight pb-4 relative 
