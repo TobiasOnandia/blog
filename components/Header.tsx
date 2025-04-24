@@ -45,6 +45,8 @@ export const Header = () => {
         </span>
       </h1>
 
+      <div className="backdrop-blur-2xl absolute top-0 left-0 w-full h-full -z-10 " />
+
       {/* Navegación */}
       <nav className="flex-1">
         <ul className="flex justify-center items-center gap-8 text-sm uppercase tracking-wide">
