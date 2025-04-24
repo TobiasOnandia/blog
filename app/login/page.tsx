@@ -86,7 +86,11 @@ export default function LoginPage() {
                 </span>
               </div>
             </div>
-            <SignInWithGoogle /> {/* Usar el componente real */}
+            <SignInWithGoogle
+              className="w-full py-3 cursor-pointer flex gap-2 items-center justify-center bg-white border-2 border-black/20 uppercase tracking-widest
+                    hover:border-black/60 hover:bg-black/5 transition-all duration-300"
+            />{" "}
+            {/* Usar el componente real */}
             <footer className="flex flex-col mt-6 md:mt-8">
               <a
                 href="/register"

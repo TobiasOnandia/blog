@@ -1,8 +1,9 @@
 "use client";
 
 import { createClient } from "@/utils/supabase/client";
+import { GoogleIcon } from "@/components/icons";
 
-export const SignInWithGoogle = () => {
+export const SignInWithGoogle = ({ className }: { className: string }) => {
   const handleClick = async () => {
     const supabase = createClient();
 
@@ -19,12 +20,9 @@ export const SignInWithGoogle = () => {
   };
 
   return (
-    <button
-      className="w-full py-3 bg-white border-2 border-black/20 uppercase tracking-widest
-                    hover:border-black/60 hover:bg-black/5 transition-all duration-300"
-      onClick={handleClick}
-    >
+    <button className={className} onClick={handleClick}>
       Iniciar sesion con Google
+      <GoogleIcon className="w-5 h-5" />
     </button>
   );
 };
