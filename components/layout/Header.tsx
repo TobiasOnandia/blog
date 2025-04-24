@@ -16,13 +16,14 @@ export const Header = () => {
   return (
     <header className="sticky top-0 flex items-center justify-between  border-black/20 py-6  font-courier-prime z-50">
       {/* Título estilo cabecera de periódico */}
-      <h1 className="text-lg flex-1 font-bold uppercase tracking-widest border-r border-black/20 pr-8">
-        Crónicas Digitales
-        <span className="block text-sm font-normal normal-case tracking-normal mt-1 text-gray-500">
-          Desde 2024
-        </span>
-      </h1>
-
+      <a href="/" className="flex-1  border-r border-black/20 ">
+        <h1 className="text-lg font-bold uppercase tracking-widest">
+          Crónicas Digitales
+          <span className="block text-sm font-normal normal-case tracking-normal mt-1 text-gray-500">
+            Desde 2024
+          </span>
+        </h1>
+      </a>
       <div className="backdrop-blur-2xl absolute top-0 left-0 w-full h-full -z-10 " />
 
       {/* Navegación */}
