@@ -1,5 +1,5 @@
 "use client";
-import { SignInWithGoogle } from "@/utils/SignInWithGoogle";
+import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 import { useEffect, useState } from "react";
 import { createClient } from "@/utils/supabase/client";
 import type { User } from "@supabase/supabase-js";

@@ -1,9 +1,8 @@
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Main } from "@/components/Main";
-import { PostCreator } from "@/components/PostCreator";
-import { Sidebar } from "@/components/Sidebar";
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { Hero } from "@/components/layout/Hero";
+import { Main } from "@/components/layout/Main";
+import { Sidebar } from "@/components/layout/Sidebar";
 
 export default function Home() {
   return (

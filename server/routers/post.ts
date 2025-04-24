@@ -1,4 +1,3 @@
-// src/server/routers/post.ts
 import { z } from "zod";
 import { router } from "@/server/trpc";
 import { publicProcedure, protectedProcedure } from "@/server/trpc";

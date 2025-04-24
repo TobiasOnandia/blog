@@ -1,9 +1,7 @@
 "use client";
 import { useUser } from "@/hooks/useUser";
-import { SignInWithGoogle } from "@/utils/SignInWithGoogle";
+import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 import { createClient } from "@/utils/supabase/client";
-import { Session, User } from "@supabase/supabase-js";
-import { useEffect, useState } from "react";
 
 export const NavItems = [
   { label: "Home", href: "/", icons: {} },
@@ -14,6 +12,7 @@ export const NavItems = [
 
 export const Header = () => {
   const user = useUser();
+  const supabase = createClient();
 
   return (
     <header className="sticky top-0 flex items-center justify-between  border-black/20 py-6  font-courier-prime z-50">
