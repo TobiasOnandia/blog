@@ -2,119 +2,112 @@ import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 
 export default function LoginPage() {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center p-4 font-courier-prime"
-      style={{
-        background: "#fffcfc",
-        backgroundImage:
-          'url("https://www.transparenttextures.com/patterns/soft-wallpaper.png")',
-      }}
-    >
-      <div
-        className="w-full max-w-4xl bg-white/95 backdrop-blur-sm border-2 border-black shadow-2xl p-8 
-                      grid grid-cols-1 md:grid-cols-3 gap-8"
-      >
-        {/* Columna izquierda - Estilo portada periódico */}
-        <div className="md:col-span-1 border-r-2 border-black pr-8">
-          <div className="mb-6">
-            <h1 className="text-5xl font-bold uppercase leading-none border-b-2 border-black pb-2">
-              Crónicas
-              <br />
-              Digitales
-            </h1>
-            <p className="text-xs text-gray-600 mt-2">Edición Especial</p>
-          </div>
+    <main className="min-h-screen py-8 px-4 flex items-center justify-center ">
+      <section className="w-full  border-2 border-black/20 relative p-8 md:p-12 bg-white/95 backdrop-blur-sm shadow-lg">
+        <header className="mb-8 border-b-2 border-black pb-4 text-center md:text-left">
+          <h1 className="text-3xl md:text-6xl first-letter:text-sky-600 font-bold uppercase leading-none">
+            Crónicas Digitales
+          </h1>
 
-          <div className="space-y-4 text-sm">
-            <div className="border border-black p-3 relative">
-              <span className="absolute -top-2 left-2 bg-white px-2 text-xs uppercase">
-                Clasificado
+          <p className="text-lg text-gray-600 mt-4">
+            Edición especial de acceso
+          </p>
+        </header>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-start">
+          <article className="space-y-8 order-2 md:order-1">
+            <section className="border-2 border-black p-6 relative">
+              <span className="absolute -top-3 left-4 bg-white px-2 text-sm uppercase">
+                Exclusivo
               </span>
-              <p className="italic">
-                "La innovación tecnológica requiere acceso seguro"
+              <h3 className="text-xl md:text-2xl font-bold mb-4">
+                Bienvenido al Círculo Editorial
+              </h3>
+              <p className="text-gray-700 leading-relaxed text-justify">
+                Como miembro registrado, tendrás acceso exclusivo a:
               </p>
-            </div>
-
-            <div className="border-t-2 border-black pt-4">
-              <p className="text-xs uppercase">Fecha de publicación:</p>
-              <p className="text-sm">
+              <ul className="mt-4 *:first-letter:text-sky-600 space-y-2 text-sm text-gray-600 list-disc pl-4">
+                <li>Artículos premium</li>
+                <li>Ediciones especiales</li>
+                <li>Archivo histórico</li>
+                <li>Herramientas de publicación</li>
+              </ul>
+            </section>
+            <p className="border-t-2 flex flex-col border-black/20 pt-6 text-sm uppercase text-gray-600">
+              <span>Fecha actual:</span>
+              <time className="text-lg text-neutral-950">
                 {new Date().toLocaleDateString("es-ES", {
                   weekday: "long",
-                  day: "numeric",
+                  year: "numeric",
                   month: "long",
+                  day: "numeric",
                 })}
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Columna derecha - Formulario */}
-        <div className="md:col-span-2">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold uppercase border-b-2 border-black pb-2">
-              Acceso de Corresponsal
+              </time>
+            </p>
+          </article>
+          {/* Columna Derecha: Formulario de Acceso */}
+          <article className="bg-transparent md:bg-white/50 md:p-8 rounded order-1 md:order-2">
+            <h2 className="text-3xl font-bold uppercase mb-6 first-letter:text-sky-600">
+              Acceso
             </h2>
-            <p className="text-sm text-gray-600 mt-2">
-              Sección de Credenciales - Vol. XII No.45
-            </p>
-          </div>
-
-          <form className="space-y-6">
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-2">
-                Telegrama Electrónico
+            <form className="space-y-6">
+              <label className="block text-sm uppercase tracking-widest mb-3">
+                Correo
+                <input
+                  type="email"
+                  className="w-full mt-1 px-4 py-3 border-2 border-black/20 hover:border-black/40 focus:border-black/60 transition-all"
+                  placeholder="redaccion@cronicas.com"
+                />
               </label>
-              <input
-                type="email"
-                className="w-full px-3 py-2 border-2 border-black focus:ring-2 focus:ring-black/20"
-                placeholder="ejemplo@cronicas.com"
-              />
-            </div>
 
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-2">
-                Código Secreto
+              <label className="block text-sm uppercase tracking-widest mb-3">
+                Contraseña
+                <input
+                  type="password"
+                  className="w-full mt-1 px-4 py-3 border-2 border-black/20 hover:border-black/40 focus:border-black/60 transition-all"
+                  placeholder="••••••••"
+                />
               </label>
-              <input
-                type="password"
-                className="w-full px-3 py-2 border-2 border-black focus:ring-2 focus:ring-black/20"
-                placeholder="••••••••"
-              />
+
+              <button
+                type="submit"
+                className="w-full py-3 bg-black text-white uppercase tracking-widest
+                            hover:bg-gray-800 transition-all duration-300 border-2 border-black"
+              >
+                Ingresar
+              </button>
+            </form>
+            <div className="my-6 md:my-8 relative">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-black/20"></div>
+              </div>
+              <div className="relative flex justify-center">
+                <span className="bg-white px-4 text-sm uppercase text-gray-600">
+                  continuar con
+                </span>
+              </div>
             </div>
-
-            <button
-              type="submit"
-              className="w-full py-3 bg-black text-white uppercase tracking-widest 
-                        hover:bg-gray-800 transition-all duration-300 border-2 border-black"
-            >
-              Autorizar Acceso
-            </button>
-          </form>
-
-          <div className="my-6 relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t-2 border-black"></div>
-            </div>
-            <div className="relative flex justify-center">
-              <span className="bg-white px-4 text-sm uppercase">O bien</span>
-            </div>
-          </div>
-
-          <SignInWithGoogle
-          // className="w-full py-3 bg-white border-2 border-black uppercase tracking-widest
-          //           hover:bg-black hover:text-white transition-all duration-300"
-          />
-
-          <div className="mt-8 text-center space-y-2">
-            <button className="text-sm hover:underline decoration-2 decoration-black">
-              ¿Nuevo corresponsal? Solicite credenciales
-            </button>
-            <p className="text-xs text-gray-600 mt-4">
-              Sistema de autenticación protegido por el ISSN 0123-4567
-            </p>
-          </div>
+            <SignInWithGoogle /> {/* Usar el componente real */}
+            <footer className="flex flex-col mt-6 md:mt-8">
+              <a
+                href="/register"
+                className="text-sm text-center space-y-2 hover:underline decoration-2 decoration-black/60"
+              >
+                ¿Nuevo colaborador? Registrate
+              </a>
+              <p className="text-sm text-gray-600 mt-4 text-center md:text-left">
+                {" "}
+                {/* Centrado en móvil */}
+                <a href="/password-reset" className="hover:underline">
+                  Recuperar acceso
+                </a>
+              </p>
+            </footer>
+          </article>
         </div>
-      </div>
-    </div>
+        <p className="mt-12 text-center text-sm text-gray-500">
+          ISSN 0123-4567 | Todos los derechos reservados
+        </p>
+      </section>{" "}
+    </main>
   );
 }

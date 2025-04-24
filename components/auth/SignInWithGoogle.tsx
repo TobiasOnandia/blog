@@ -20,10 +20,11 @@ export const SignInWithGoogle = () => {
 
   return (
     <button
-      className="border border-black/20 px-3 py-1.5 text-sm hover:bg-black/5 transition-all"
+      className="w-full py-3 bg-white border-2 border-black/20 uppercase tracking-widest
+                    hover:border-black/60 hover:bg-black/5 transition-all duration-300"
       onClick={handleClick}
     >
-      Iniciar sesion
+      Iniciar sesion con Google
     </button>
   );
 };

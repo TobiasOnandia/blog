@@ -40,7 +40,7 @@ export const Main = () => {
       {Posts.map((post) => (
         <article
           key={post.id}
-          className="relative group  border-black/20 transition-all duration-300  hover:border-black/60 pl-8   border-l-2 origin-bottom"
+          className="relative group  border-black/20 transition-all duration-300  hover:border-sky-600 pl-8   border-l-2 origin-bottom"
         >
           {/* Encabezado vertical con hover */}
           <header className="absolute  left-0 -translate-x-full pr-4 text-right w-24 group-hover:-translate-x-[110%] transition-transform duration-500">
@@ -96,7 +96,7 @@ export const Main = () => {
                 {/* Cita destacada interactiva */}
                 <blockquote
                   className="pl-4 border-l-4 border-black/20 italic text-gray-600 
-                                         group-hover:border-black/60 group-hover:translate-x-2 
+                                         group-hover:border-sky-600 group-hover:translate-x-2 
                                          transition-all duration-500"
                 >
                   "La innovación requiere visión y coraje para desafiar lo
