@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output = "app/generated/prisma/client"
 }
 
 datasource db {
@@ -26,6 +27,7 @@ model Post {
   id String @id @default(cuid())
   title String
   content Json
+  category String
   slug String @unique
   published Boolean @default(false)
   author User? @relation(fields: [authorId], references: [id])

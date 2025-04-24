@@ -49,6 +49,7 @@ export const postRouter = router({
     .input(
       z.object({
         title: z.string().min(1, "El título es requerido"),
+        category: z.string().min(1, "La categoría es requerida"),
         content: z
           .string()
           .min(5, "El contenido debe tener al menos 5 caracteres"),
@@ -75,6 +76,7 @@ export const postRouter = router({
       const post = await ctx.prisma.post.create({
         data: {
           title: input.title,
+          category: input.category,
           content: input.content,
           authorId: userId,
           published: true,
