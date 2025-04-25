@@ -33,7 +33,7 @@ export default async function AdminPostEditPage({
   }
 
   return (
-    <main className="">
+    <main className="py-4">
       {/* Encabezado editorial */}
       <header className="border-b border-black/20 pb-6 mb-8">
         <div className="flex justify-between items-start mb-4">
@@ -145,38 +145,21 @@ export default async function AdminPostEditPage({
         </div>
 
         {/* Acciones */}
-        <div className="flex justify-end gap-4 border-t border-black/20 pt-8">
+        <div className="flex justify-between gap-4 border-t border-black/20 pt-8">
+          <button
+            type="button"
+            className="text-red-600 cursor-pointer hover:text-red-800 text-sm uppercase tracking-widest"
+          >
+            Eliminar artículo permanentemente
+          </button>
           <button
             type="submit"
             className="px-6 py-3 cursor-pointer bg-black text-white uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
           >
             Guardar Cambios
           </button>
-          <button
-            type="button"
-            className="px-6 cursor-pointer py-3 border border-black/20 uppercase tracking-widest text-sm hover:bg-black/5 transition-all"
-          >
-            Vista Previa
-          </button>
         </div>
       </form>
-
-      {/* Sección de peligro */}
-      {post?.id && (
-        <div className="mt-12 border-t border-red-200 pt-8">
-          <div className="max-w-prose">
-            <h3 className="text-sm uppercase tracking-widest text-red-600 mb-4">
-              Zona de peligro
-            </h3>
-            <button
-              type="button"
-              className="text-red-600 hover:text-red-800 text-sm uppercase tracking-widest"
-            >
-              Eliminar artículo permanentemente →
-            </button>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
