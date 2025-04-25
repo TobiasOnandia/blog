@@ -52,7 +52,7 @@ export const FormPost = () => {
           type="text"
           name="title"
           id="title"
-          className="w-full text-3xl font-bold border-b border-black/20 pb-2 focus:border-black/60"
+          className="w-full text-3xl font-bold border-b border-black/20 p-2 focus:border-black/60"
           placeholder="Escribe tu titular aquí"
         />
       </label>

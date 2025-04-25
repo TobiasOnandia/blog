@@ -36,7 +36,7 @@ export const RegisterForm = () => {
         <input
           type="text"
           name="name"
-          className="w-full px-4 py-3 border-2 border-black/20 focus:border-black/60"
+          className="w-full px-4 bg-gray-200 py-3 border-2 border-black/20 focus:border-black/60"
           placeholder="Nombre"
           required
         />
@@ -47,7 +47,7 @@ export const RegisterForm = () => {
         <input
           type="email"
           name="email"
-          className="w-full px-4 py-3 border-2 border-black/20 focus:border-black/60"
+          className="w-full bg-gray-200 px-4 py-3 border-2 border-black/20 focus:border-black/60"
           placeholder="corresponsal@cronicas.com"
           required
         />
@@ -58,7 +58,7 @@ export const RegisterForm = () => {
         <input
           type="password"
           name="password"
-          className="w-full px-4 py-3 border-2 border-black/20 focus:border-black/60"
+          className="w-full px-4 bg-gray-200 py-3 border-2 border-black/20 focus:border-black/60"
           placeholder="••••••••"
           required
         />

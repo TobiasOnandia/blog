@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <footer className="border-t mx-auto py-12 px-8 font-courier-prime  border-black/20 mt-24  relative z-20">
+    <footer className="border-t mx-auto py-12  font-courier-prime  border-black/20 mt-24  relative z-20">
       {/* Grid de contenido */}
       <section className="grid grid-cols-1  md:grid-cols-3 gap-8 mb-12">
         {/* Columna 1 - Ediciones */}

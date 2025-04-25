@@ -3,8 +3,8 @@ import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 
 export default function LoginPage() {
   return (
-    <main className="min-h-screen py-8 px-4 flex items-center justify-center ">
-      <section className="w-full  border-2 border-black/20 relative p-8 md:p-12 bg-white/95 backdrop-blur-sm shadow-lg">
+    <main className="min-h-screen py-8 flex items-center justify-center ">
+      <section className="w-full  border-2 border-black/20 relative p-8 md:p-12  shadow-lg">
         <header className="mb-8 border-b-2 border-black pb-4 text-center md:text-left">
           <h1 className="text-3xl md:text-6xl first-letter:text-sky-600 font-bold uppercase leading-none">
             Crónicas Digitales
@@ -46,7 +46,7 @@ export default function LoginPage() {
             </p>
           </article>
           {/* Columna Derecha: Formulario de Acceso */}
-          <article className="bg-transparent md:bg-white/50 md:p-8 rounded order-1 md:order-2">
+          <article className="bg-transparent rounded order-1 md:order-2">
             <h2 className="text-3xl font-bold uppercase mb-6 first-letter:text-sky-600">
               Acceso
             </h2>

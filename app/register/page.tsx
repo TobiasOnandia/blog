@@ -3,7 +3,7 @@ import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 
 export default function Register() {
   return (
-    <main className="min-h-screen  w-full  bg-white/95 backdrop-blur-sm border-2 border-black/20  p-8 justify-center  ">
+    <main className="min-h-screen  w-full   border border-black/20  p-8 justify-center  ">
       <header className="mb-8 border-b-2 border-black pb-4">
         <h1 className="text-4xl first-letter:text-sky-600 md:text-5xl font-bold uppercase">
           Registro

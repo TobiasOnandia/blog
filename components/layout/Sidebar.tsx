@@ -9,7 +9,7 @@ export const Sidebar = () => {
                               border-l-2 border-transparent hover:border-black
                               text-lg tracking-wide uppercase"
             >
-              View all
+              Ver todo
             </button>
           </li>
           <li>
@@ -18,7 +18,7 @@ export const Sidebar = () => {
                               border-l-2 border-transparent hover:border-black
                               text-lg tracking-wide uppercase"
             >
-              Design
+              Diseño
               <span className="block text-sm font-normal normal-case mt-1 text-gray-500">
                 Teoría y práctica visual
               </span>
@@ -30,7 +30,7 @@ export const Sidebar = () => {
                               border-l-2 border-transparent hover:border-black
                               text-lg tracking-wide uppercase"
             >
-              Product
+              Productos
               <span className="block text-sm font-normal normal-case mt-1 text-gray-500">
                 Innovación tangible
               </span>
@@ -42,7 +42,7 @@ export const Sidebar = () => {
                               border-l-2 border-transparent hover:border-black
                               text-lg tracking-wide uppercase"
             >
-              Business
+              Trabajo
               <span className="block text-sm font-normal normal-case mt-1 text-gray-500">
                 Estrategias modernas
               </span>
