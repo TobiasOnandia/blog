@@ -4,7 +4,7 @@ import { createClient } from "@/utils/supabase/client";
 
 export const NavItems = [
   { label: "Inicio", href: "/", icons: {} },
-  { label: "Posts", href: "/posts", icons: {} },
+  { label: "Posts", href: "/posts/all", icons: {} },
   { label: "Nuevo Post", href: "/posts/new", icons: {} },
   { label: "Perfil", href: "/profile", icons: {} },
 ];
