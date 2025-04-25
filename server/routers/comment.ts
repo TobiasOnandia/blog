@@ -64,4 +64,15 @@ export const commentRouter = router({
       });
       return comment;
     }),
+
+  byPost: publicProcedure
+    .input(z.string().cuid())
+    .query(async ({ ctx, input }) => {
+      const comments = await ctx.prisma.comment.findMany({
+        where: { postId: input },
+        include: { author: true },
+        orderBy: { createdAt: "desc" },
+      });
+      return comments;
+    }),
 });

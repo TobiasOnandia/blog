@@ -70,7 +70,7 @@ export const PostDisplay = ({ post, id }: PostDisplayProps) => {
         {/* Formulario de Comentarios (Necesitaría ser un Componente Cliente) */}
         <FormComment id={id} />
         {/* Aquí iría el mapeo de comentarios reales */}
-        <Comments />
+        <Comments id={id} />
       </section>
     </article>
   );

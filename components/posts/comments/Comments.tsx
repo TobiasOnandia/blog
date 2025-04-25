@@ -1,14 +1,17 @@
 "use client";
 import { trpc } from "@/utils/trpc";
 
-export const Comments = () => {
-  const { data } = trpc.comment.list.useQuery();
+export const Comments = ({ id }: { id: string }) => {
+  const { data } = trpc.comment.byPost.useQuery(id);
 
   return (
     <>
-      {data?.comments.map((comment) => {
+      {data?.map((comment) => {
         return (
-          <section key={comment.id} className="border-l-2 border-black/20 pl-4">
+          <section
+            key={comment.id}
+            className="border-l-2 mb-4 border-black/20 pl-4"
+          >
             <span>{comment.author?.name}</span>
             <time
               className="text-gray-600 text-sm ml-4"
