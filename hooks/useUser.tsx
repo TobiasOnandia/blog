@@ -3,7 +3,7 @@ import { User, Session } from "@supabase/supabase-js";
 import { createClient } from "@/utils/supabase/client";
 
 export const useUser = () => {
-  const [user, setUser] = useState<null | User>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
 

@@ -48,7 +48,7 @@ export const commentRouter = router({
       z
         .object({
           content: z.string(),
-          authorId: z.string().cuid(),
+          authorId: z.string().uuid(),
           postId: z.string().cuid(),
         })
         .required()

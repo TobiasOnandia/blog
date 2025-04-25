@@ -9,9 +9,10 @@ type PostType = RouterOutput["post"]["byId"];
 
 interface PostDisplayProps {
   post: PostType;
+  id: string;
 }
 
-export const PostDisplay = ({ post }: PostDisplayProps) => {
+export const PostDisplay = ({ post, id }: PostDisplayProps) => {
   if (!post) {
     return <div>Error al mostrar el post.</div>;
   }
@@ -26,7 +27,7 @@ export const PostDisplay = ({ post }: PostDisplayProps) => {
               {post.category}
             </span>
           )}
-          {post.createdAt && ( 
+          {post.createdAt && (
             <time dateTime={post.createdAt.toISOString()}>
               {post.createdAt.toLocaleDateString("es-ES", {
                 year: "numeric",
@@ -67,7 +68,7 @@ export const PostDisplay = ({ post }: PostDisplayProps) => {
         </h2>
 
         {/* Formulario de Comentarios (Necesitaría ser un Componente Cliente) */}
-        <FormComment />
+        <FormComment id={id} />
         {/* Aquí iría el mapeo de comentarios reales */}
         <Comments />
       </section>

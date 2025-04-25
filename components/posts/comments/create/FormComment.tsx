@@ -2,9 +2,12 @@
 import { trpc } from "@/utils/trpc";
 import { useActionState } from "react";
 import { toast } from "sonner";
+import { useUser } from "@/hooks/useUser";
+import { User } from "@supabase/supabase-js";
 
-export const FormComment = () => {
+export const FormComment = ({ id }: { id: string }) => {
   const utils = trpc.useUtils();
+  const user = useUser();
 
   const createCommentMutation = trpc.comment.create.useMutation({
     onSuccess: () => {
@@ -28,8 +31,8 @@ export const FormComment = () => {
       try {
         createCommentMutation.mutateAsync({
           content: content as string,
-          authorId: "",
-          postId: "",
+          authorId: (user as User).id,
+          postId: id,
         });
       } catch (error) {
         toast.error("Error al crear el comentario");

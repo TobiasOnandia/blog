@@ -28,5 +28,5 @@ export default async function PostDetail({
     notFound();
   }
 
-  return <PostDisplay post={postData} />;
+  return <PostDisplay post={postData} id={id} />;
 }
