@@ -97,4 +97,15 @@ export const postRouter = router({
       });
       return post;
     }),
+
+  byUser: publicProcedure
+    .input(z.string().uuid())
+    .query(async ({ ctx, input }) => {
+      const posts = await ctx.prisma.post.findMany({
+        where: { authorId: input },
+        orderBy: { createdAt: "desc" },
+        include: { author: true }, // Incluir datos del autor
+      });
+      return posts;
+    }),
 });
