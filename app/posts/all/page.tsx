@@ -1,3 +1,4 @@
+import { BubbleIcon } from "@/components/icons";
 import { trpc } from "@/utils/trpc";
 import { useState } from "react";
 
@@ -70,19 +71,19 @@ export default function PostsGrid() {
                       {post.title}
                     </h3>
                     <p className="text-gray-700 line-clamp-3">
-                      {post.content}
+                      {post.content as string}
                     </p>
                   </div>
                   
                   <div className="mt-6 flex items-center justify-between text-sm text-gray-600">
                     <time>
-                      {new Date(post.date).toLocaleDateString('es-ES', {
+                      {new Date(post.createdAt).toLocaleDateString('es-ES', {
                         day: 'numeric',
                         month: 'short'
                       })}
                     </time>
                     <span className="flex items-center gap-1">
-                      <ChatBubbleIcon className="w-4 h-4" />
+                      <BubbleIcon className="w-4 h-4" />
                       {/* {post.comments} */}
                       8
                     </span>
