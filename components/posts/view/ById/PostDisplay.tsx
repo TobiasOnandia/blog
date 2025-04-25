@@ -26,7 +26,7 @@ export const PostDisplay = ({ post }: PostDisplayProps) => {
               {post.category}
             </span>
           )}
-          {post.createdAt && (
+          {post.createdAt && ( 
             <time dateTime={post.createdAt.toISOString()}>
               {post.createdAt.toLocaleDateString("es-ES", {
                 year: "numeric",
