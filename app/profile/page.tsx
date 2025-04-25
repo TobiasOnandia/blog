@@ -1,59 +1,21 @@
+"use client";
 import { PostByUser } from "@/components/profile/data/PostByUser";
 import { Statistics } from "@/components/profile/data/Statistics";
 import { UserProfile } from "@/components/profile/data/UserProfile";
-
-const user = {
-  id: 1,
-  email: "usuario@example.com",
-  full_name: "Usuario Ejemplo",
-  username: "usuario",
-  created_at: new Date().toISOString(),
-};
-
-const userPosts = [
-  {
-    id: 1,
-    title: "Escándalo financiero sacude Buenos Aires",
-    category: "Economía",
-    date: "12 Enero 2024",
-    content:
-      "Fuentes cercanas al gobierno revelan compleja trama de corrupción que involucra altos funcionarios...",
-    excerpt:
-      "En un giro inesperado, la investigación sobre fondos desviados lleva el caso a instancias internacionales.",
-    author: "Pepe",
-  },
-  {
-    id: 2,
-    title: "Avance revolucionario en energía sustentable",
-    category: "Ciencia",
-    date: "11 Enero 2024",
-    content:
-      "Equipo de investigadores argentinos desarrolla nuevo método para almacenamiento de energía solar...",
-    excerpt:
-      "La tecnología promete reducir costos operacionales en un 40% según reportes preliminares.",
-    author: "Pepe",
-  },
-  {
-    id: 3,
-    title: "Nueva corriente artística emerge en Córdoba",
-    category: "Cultura",
-    date: "10 Enero 2024",
-    content:
-      "Colectivo de artistas urbanos redefine el concepto de espacio público con instalaciones interactivas...",
-    excerpt:
-      "Críticos destacan fusión única entre tradición local y vanguardismo tecnológico.",
-    author: "Pepe",
-  },
-];
+import { useUser } from "@/hooks/useUser";
+import { createClient } from "@/utils/supabase/client";
+import { User } from "@supabase/supabase-js";
 
 export default function ProfilePage() {
+  const user = useUser() as User;
+  const supabase = createClient();
   return (
     <main className="min-h-screen text-black/80 p-8 font-courier-prime border border-black/20 shadow-xl ">
       {/* Encabezado estilo portada */}
       <header className="border-b border-black/20 pb-6 mb-8 flex items-start justify-between">
         <div>
           <h1 className="text-4xl font-bold uppercase tracking-widest">
-            {user?.username || "Perfil"}
+            {user?.app_metadata?.name || "Perfil"}
           </h1>
           <p className="text-sm text-gray-500 mt-2">
             Miembro desde:{" "}
@@ -61,7 +23,7 @@ export default function ProfilePage() {
           </p>
         </div>
         <button
-          // onClick={() => supabase.auth.signOut()}
+          onClick={() => supabase.auth.signOut()}
           className="text-sm uppercase hover:underline decoration-black/50"
         >
           Cerrar sesión
@@ -77,7 +39,7 @@ export default function ProfilePage() {
         </section>
 
         {/* Columna derecha - Actividad reciente */}
-        <section className="md:col-span-2 border border-black/20 p-4">
+        <section className="md:col-span-2 border  border-black/20 p-4">
           <h3 className="text-lg uppercase tracking-widest border-b border-black/20 pb-2 mb-6">
             Crónicas recientes
           </h3>

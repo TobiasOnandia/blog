@@ -1,4 +1,11 @@
 "use client";
+import {
+  ArrowUpIcon,
+  ChartBarIcon,
+  ChartBubbleIcon,
+  DotsIcon,
+  PencilIcon,
+} from "@/components/icons";
 import { useUser } from "@/hooks/useUser";
 import { trpc } from "@/utils/trpc";
 import { User } from "@supabase/supabase-js";
@@ -21,28 +28,52 @@ export const PostByUser = () => {
       {userPosts.data.map((post) => (
         <article
           key={post.id}
-          className="group border-b mb-6 border-black/20 pb-6 last:border-0 hover:bg-gray-50 transition-all"
+          className="group relative mb-4 border-l-2 border-black/20 pl-6 py-6 hover:border-black/40 transition-all duration-300"
         >
-          <div className="flex items-start justify-between">
-            <div>
-              <h4 className="text-xl font-bold mb-2">{post.title}</h4>
-              {/* <p className="text-sm text-gray-600">{post.excerpt}</p> */}
+          <section className="flex flex-col md:flex-row justify-between gap-4">
+            {/* Contenido principal */}
+            <div className="flex-1">
+              <p className="mb-2 flex items-center gap-3">
+                <span className="bg-black/5 px-3 py-1 text-xs uppercase tracking-widest">
+                  {post.category}
+                </span>
+                <time className="text-xs text-gray-500">
+                  {new Date(post.createdAt).toLocaleDateString("es-ES", {
+                    day: "numeric",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </time>
+              </p>
+
+              <h4 className="text-2xl font-bold leading-tight mb-2 hover:text-black/80 transition-colors">
+                {post.title}
+              </h4>
+
+              <p className="text-gray-700 line-clamp-2 mb-4">
+                {post.content as string}
+                <button className="ml-2 text-black/60 hover:text-black/90 transition-colors">
+                  → Leer más
+                </button>
+              </p>
             </div>
-            <span className="text-xs text-gray-500 ml-4">
-              {new Date().toLocaleDateString("es-ES")}
-            </span>
-          </div>
-          <div className="mt-4 flex items-center gap-4 text-xs uppercase">
-            <button className="hover:underline decoration-black/50">
-              Editar
-            </button>
-            <button className="hover:underline decoration-black/50">
-              Estadísticas
-            </button>
-            <button className="hover:underline decoration-black/50">
-              Compartir
-            </button>
-          </div>
+
+            {/* Metadatos y acciones */}
+            <div className="flex items-center gap-3">
+              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
+                <PencilIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
+              </button>
+              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
+                <ArrowUpIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
+              </button>
+              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
+                <DotsIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
+              </button>
+            </div>
+          </section>
+
+          {/* Efecto hover */}
+          <div className="absolute inset-0 -z-10 group-hover:bg-black/3 transition-colors duration-300" />
         </article>
       ))}
     </>
