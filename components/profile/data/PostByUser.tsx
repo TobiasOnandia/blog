@@ -52,9 +52,12 @@ export const PostByUser = () => {
 
               <p className="text-gray-700 line-clamp-2 mb-4">
                 {post.content as string}
-                <button className="ml-2 text-black/60 hover:text-black/90 transition-colors">
+                <a
+                  href={`/post/edit/${post.id}`}
+                  className="ml-2 text-black/60 hover:text-black/90 transition-colors"
+                >
                   → Leer más
-                </button>
+                </a>
               </p>
             </div>
 
