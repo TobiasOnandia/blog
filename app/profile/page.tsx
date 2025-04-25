@@ -10,7 +10,7 @@ export default function ProfilePage() {
   const user = useUser() as User;
   const supabase = createClient();
   return (
-    <main className="min-h-screen text-black/80 p-8 font-courier-prime border border-black/20 shadow-xl ">
+    <main className="h-fit text-black/80 p-8 font-courier-prime border border-black/20 shadow-xl ">
       {/* Encabezado estilo portada */}
       <header className="border-b border-black/20 pb-6 mb-8 flex items-start justify-between">
         <div>
@@ -24,14 +24,14 @@ export default function ProfilePage() {
         </div>
         <button
           onClick={() => supabase.auth.signOut()}
-          className="text-sm uppercase hover:underline decoration-black/50"
+          className="text-sm uppercase hover:underline cursor-pointer decoration-black/50"
         >
           Cerrar sesión
         </button>
       </header>
 
       {/* Cuerpo en 2 columnas */}
-      <article className="grid md:grid-cols-3 gap-8">
+      <article className="grid  md:grid-cols-3 gap-8">
         {/* Columna izquierda - Información */}
         <section className="md:col-span-1 space-y-8">
           <UserProfile />

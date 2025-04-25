@@ -2,13 +2,6 @@ import { router } from "@/server/trpc";
 import { z } from "zod";
 import { publicProcedure } from "@/server/trpc";
 
-interface PrismaClientWithComment {
-  comment: {
-    findMany: (args: any) => Promise<any[]>;
-  };
-  [key: string]: any;
-}
-
 export const commentRouter = router({
   create: publicProcedure
     .input(
