@@ -6,6 +6,7 @@ import ChartBubbleIcon from "@/components/icons/chart-bubble.svg";
 import PencilIcon from "@/components/icons/pencil.svg";
 import ArrowUpIcon from "@/components/icons/arrow-up.svg";
 import DotsIcon from "@/components/icons/dots.svg";
+import BubbleIcon from "@/components/icons/bubble.svg";
 export {
   GoogleIcon,
   HeartIcon,
@@ -15,4 +16,5 @@ export {
   PencilIcon,
   DotsIcon,
   ArrowUpIcon,
+  BubbleIcon
 };
