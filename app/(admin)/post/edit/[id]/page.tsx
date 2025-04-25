@@ -125,40 +125,36 @@ export default async function AdminPostEditPage({
 
           {/* Columna derecha - Contenido */}
           <div className="md:col-span-2 space-y-6">
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Título
-              </label>
+            <label className="flex flex-col gap-4  text-sm uppercase tracking-widest mb-3">
+              Título
               <input
                 type="text"
-                className="w-full text-2xl font-bold border-b border-black/20 pb-2 focus:border-black/60"
+                className="w-full text-2xl font-bold border-b border-black/20 p-2 focus:border-black/60"
                 placeholder="Escribe el titular aquí"
               />
-            </div>
+            </label>
 
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Contenido
-              </label>
+            <label className="flex flex-col gap-4  text-sm uppercase tracking-widest mb-3">
+              Contenido
               <textarea
-                className="w-full h-96 p-4 border border-black/20 resize-none"
+                className="w-full h-103 p-4 border border-black/20 resize-none"
                 placeholder="Comienza a escribir tu crónica..."
               />
-            </div>
+            </label>
           </div>
         </div>
 
         {/* Acciones */}
-        <div className="flex gap-4 border-t border-black/20 pt-8">
+        <div className="flex justify-end gap-4 border-t border-black/20 pt-8">
           <button
             type="submit"
-            className="px-6 py-3 bg-black text-white uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
+            className="px-6 py-3 cursor-pointer bg-black text-white uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
           >
             Guardar Cambios
           </button>
           <button
             type="button"
-            className="px-6 py-3 border border-black/20 uppercase tracking-widest text-sm hover:bg-black/5 transition-all"
+            className="px-6 cursor-pointer py-3 border border-black/20 uppercase tracking-widest text-sm hover:bg-black/5 transition-all"
           >
             Vista Previa
           </button>
