@@ -1,8 +1,8 @@
-import { HeartIcon } from "@/components/icons";
 import { AppRouter } from "@/server/routers/_app";
 import { inferRouterOutputs } from "@trpc/server";
 import { Comments } from "@/components/posts/comments/Comments";
 import { FormComment } from "@/components/posts/comments/create/FormComment";
+import { Votes } from "@/components/posts/votes/Votes";
 
 type RouterOutput = inferRouterOutputs<AppRouter>;
 type PostType = RouterOutput["post"]["byId"];
@@ -51,15 +51,7 @@ export const PostDisplay = ({ post, id }: PostDisplayProps) => {
       </p>
 
       {/* Sistema de votos (Placeholder) */}
-      <div className="flex items-center gap-6 mb-12">
-        <button
-          className="p-2 rounded-full hover:bg-black/5 transition-all"
-          aria-label="Votar positivo"
-        >
-          <HeartIcon className="w-6 h-6" />
-        </button>
-        <span className="text-xl font-bold">9</span>
-      </div>
+      <Votes postId={id} />
 
       {/* Sección de comentarios (Placeholder) */}
       <section>
