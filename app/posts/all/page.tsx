@@ -1,3 +1,5 @@
+"use client"
+
 import { BubbleIcon } from "@/components/icons";
 import { trpc } from "@/utils/trpc";
 import { useState } from "react";
@@ -26,7 +28,7 @@ export default function PostsGrid() {
           
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
             <input
-              type="text"
+              type="search"
               placeholder="Buscar en el archivo..."
               className="flex-1 w-full md:w-auto px-6 py-3 border border-black/20 focus:border-black/60"
               value={searchQuery}
@@ -52,7 +54,7 @@ export default function PostsGrid() {
         </header>
   
         {/* Grid tipo Bento */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
           {filteredPosts.map((post, index) => {
             const colSpan = index % 5 === 0 ? 'md:col-span-2' : 'md:col-span-1';
             const rowSpan = index % 5 === 0 ? 'md:row-span-2' : 'md:row-span-1';
@@ -95,7 +97,7 @@ export default function PostsGrid() {
               </article>
             );
           })}
-        </div>
+        </section>
   
         {/* Mensaje sin resultados */}
         {filteredPosts.length === 0 && (
