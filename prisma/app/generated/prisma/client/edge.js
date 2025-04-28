@@ -176,7 +176,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\Guada\\blog\\prisma\\app\\generated\\prisma\\client",
+      "value": "/home/tobias/Desktop/programacion/nextjs/blog/prisma/app/generated/prisma/client",
       "fromEnvVar": null
     },
     "config": {
@@ -185,12 +185,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\Guada\\blog\\prisma\\schema.prisma",
+    "sourceFilePath": "/home/tobias/Desktop/programacion/nextjs/blog/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

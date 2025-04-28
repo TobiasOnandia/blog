@@ -108,4 +108,33 @@ export const postRouter = router({
       });
       return posts;
     }),
+
+  update: protectedProcedure
+    .input(
+      z.object({
+        id: z.string().cuid(),
+        title: z.string().min(1, "El título es requerido"),
+        category: z.string().min(1, "La categoría es requerida"),
+        content: z
+          .string()
+          .min(5, "El contenido debe tener al menos 5 caracteres"),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { id, title, category, content } = input;
+      const post = await ctx.prisma.post.update({
+        where: { id },
+        data: { title, category, content },
+      });
+      return post;
+    }),
+
+  delete: protectedProcedure
+    .input(z.string().cuid())
+    .mutation(async ({ ctx, input }) => {
+      const post = await ctx.prisma.post.delete({
+        where: { id: input },
+      });
+      return post;
+    }),
 });

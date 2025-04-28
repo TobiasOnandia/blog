@@ -1,11 +1,4 @@
-/**
- * Pagina de edición de una crónica en el administrador.
- *
- * Permite editar una crónica existente o crear una nueva.
- *
- * @returns Componente de React que renderiza la interfaz de la página.
- */
-
+import { FormUpdatePost } from "@/components/posts/update/FormUpdatePost";
 import { appRouter } from "@/server/routers/_app";
 import { createCallerFactory, createTRPCContext } from "@/server/trpc";
 import { PostType } from "@/types/PostType";
@@ -57,109 +50,7 @@ export default async function AdminPostEditPage({
         </div>
       </header>
 
-      {/* Formulario de edición */}
-      <form className="space-y-8">
-        {/* Sección principal */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Columna izquierda - Metadatos */}
-          <div className="md:col-span-1 space-y-6">
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Categoría
-              </label>
-              <select className="w-full border border-black/20 p-3 bg-transparent">
-                <option value="">Seleccionar sección</option>
-                <option value="politica">Política</option>
-                <option value="cultura">Cultura</option>
-                <option value="economia">Economía</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Estado
-              </label>
-              <div className="flex border border-black/20">
-                <button
-                  type="button"
-                  className={`flex-1 p-2 `}
-                  // ${
-                  // post?.status === "DRAFT"
-                  // ? "bg-black text-white"
-                  // : "hover:bg-black/5"
-                  // }
-                >
-                  Borrador
-                </button>
-                <button
-                  type="button"
-                  className={`flex-1 p-2 `}
-                  // ${
-                  //   post?.status === "PUBLISHED"
-                  //     ? "bg-black text-white"
-                  //     : "hover:bg-black/5"
-                  // }
-                >
-                  Publicado
-                </button>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-sm uppercase tracking-widest mb-3">
-                Imagen principal
-              </label>
-              <div className="border border-black/20 aspect-video bg-gray-50 flex items-center justify-center">
-                <div className="text-center space-y-2">
-                  <p className="text-gray-600 text-sm">Sin imagen</p>
-                  <button
-                    type="button"
-                    className="text-xs uppercase hover:underline"
-                  >
-                    Seleccionar archivo
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Columna derecha - Contenido */}
-          <div className="md:col-span-2 space-y-6">
-            <label className="flex flex-col gap-4  text-sm uppercase tracking-widest mb-3">
-              Título
-              <input
-                type="text"
-                className="w-full text-2xl font-bold border-b border-black/20 p-2 focus:border-black/60"
-                placeholder="Escribe el titular aquí"
-              />
-            </label>
-
-            <label className="flex flex-col gap-4  text-sm uppercase tracking-widest mb-3">
-              Contenido
-              <textarea
-                className="w-full h-103 p-4 border border-black/20 resize-none"
-                placeholder="Comienza a escribir tu crónica..."
-              />
-            </label>
-          </div>
-        </div>
-
-        {/* Acciones */}
-        <div className="flex justify-between gap-4 border-t border-black/20 pt-8">
-          <button
-            type="button"
-            className="text-red-600 cursor-pointer hover:text-red-800 text-sm uppercase tracking-widest"
-          >
-            Eliminar artículo permanentemente
-          </button>
-          <button
-            type="submit"
-            className="px-6 py-3 cursor-pointer bg-black text-white uppercase tracking-widest text-sm hover:bg-gray-800 transition-all"
-          >
-            Guardar Cambios
-          </button>
-        </div>
-      </form>
+      <FormUpdatePost id={id} />
     </main>
   );
 }
