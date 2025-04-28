@@ -20,7 +20,7 @@ export const Categories = () => {
   };
 
   return (
-    <div className="flex gap-2 flex-wrap w-full md:w-auto">
+    <div className="flex gap-2  flex-wrap w-full md:w-auto">
       {categories.map((category) => (
         <button
           key={category}
