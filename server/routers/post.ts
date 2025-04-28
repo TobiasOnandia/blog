@@ -133,9 +133,15 @@ export const postRouter = router({
   delete: protectedProcedure
     .input(z.string().cuid())
     .mutation(async ({ ctx, input }) => {
+      const comments = await ctx.prisma.comment.deleteMany({
+        where: { postId: input },
+      });
+      const votes = await ctx.prisma.vote.deleteMany({
+        where: { postId: input },
+      });
       const post = await ctx.prisma.post.delete({
         where: { id: input },
       });
-      return post;
+      return { post, comments, votes };
     }),
 });

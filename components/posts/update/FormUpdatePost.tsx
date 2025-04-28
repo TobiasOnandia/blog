@@ -10,12 +10,21 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
   const { data: post } = trpc.post.byId.useQuery(id);
   const router = useRouter();
 
-  console.log(post);
-
   const updatePost = trpc.post.update.useMutation({
     onSuccess: () => {
       utils.post.list.invalidate();
       toast.success("Crónica actualizada exitosamente");
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  const deletePost = trpc.post.delete.useMutation({
+    onSuccess: () => {
+      utils.post.list.invalidate();
+      toast.success("Crónica eliminada exitosamente");
+      router.push("/profile");
     },
     onError: (error) => {
       toast.error(error.message);
@@ -154,6 +163,7 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
       {/* Acciones */}
       <div className="flex justify-between col-span-3 gap-4 border-t border-black/20 pt-8">
         <button
+          onClick={() => deletePost.mutate(id)}
           type="button"
           className="text-red-600 cursor-pointer hover:text-red-800 text-sm uppercase tracking-widest"
         >
