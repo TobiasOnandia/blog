@@ -1,13 +1,14 @@
 "use client";
 import { ViewPosts } from "@/components/posts/view/ViewPosts";
-import { trpc } from "@/utils/trpc";
+import { useFilter } from "@/hooks/useFilter";
+import { Empty } from "@/components/common/EmptyPosts";
 
 export const Main = () => {
-  const { data } = trpc.post.list.useQuery();
+  const filteredPosts = useFilter();
 
   return (
     <main className="flex-1 space-y-12 max-w-7xl mx-auto py-12 px-8 font-courier-prime">
-      {data?.posts?.map((post) => (
+      {filteredPosts.map((post) => (
         <article
           key={post.id}
           className="relative group  border-black/20 transition-all duration-300  hover:border-sky-600 pl-8   border-l-2 origin-bottom"
@@ -26,6 +27,8 @@ export const Main = () => {
           <ViewPosts post={post} />
         </article>
       ))}
+
+      {filteredPosts.length === 0 && <Empty />}
     </main>
   );
 };

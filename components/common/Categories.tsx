@@ -1,23 +1,11 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { categories } from "@/config";
+import { useCategories } from "@/hooks/useCategories";
+import { useSearchParams } from "next/navigation";
 
 export const Categories = () => {
-  const categories = ["Todas", "Política", "Cultura", "Economía", "Tecnología"];
   const selectedCategory = useSearchParams().get("category") || "Todas";
-  const searchParams = useSearchParams();
-  const { replace } = useRouter();
-
-  const handleCategoryChange = (category: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-
-    if (category !== "Todas") {
-      params.set("category", category);
-    } else {
-      params.delete("category");
-    }
-
-    replace(`?${params.toString()}`);
-  };
+  const handleCategoryChange = useCategories();
 
   return (
     <div className="flex gap-2  flex-wrap w-full md:w-auto">

@@ -1,21 +1,8 @@
-import { AppRouter } from "@/server/routers/_app";
-import { inferRouterOutputs } from "@trpc/server";
+import { ViewAllPost } from "@/types/PostType";
 
-// Infiere los tipos de salida de tu router
-type RouterOutput = inferRouterOutputs<AppRouter>;
-// Obtiene el tipo específico de un post individual de la salida de 'post.list'
-// Asegúrate que 'posts' es el nombre correcto del array en la salida de 'list'
-type PostType = RouterOutput["post"]["list"]["posts"][number];
-
-// 1. Define una interfaz para las props del componente
-interface ViewPostsProps {
-  post: PostType; // Usa el tipo inferido para la prop 'post'
-}
-
-export const ViewPosts = ({ post }: ViewPostsProps) => {
+export const ViewPosts = ({ post }: ViewAllPost) => {
   return (
     <article className="space-y-4  border-b transition-all duration-300  group-hover:border-black/60 border-black/20 py-6">
-      {/* Titular con subrayado animado */}
       <h3
         className="text-3xl font-bold leading-tight pb-4 relative 
                        after:absolute after:bottom-0 after:left-0 after:h-[2px] after:bg-black 
@@ -24,9 +11,7 @@ export const ViewPosts = ({ post }: ViewPostsProps) => {
         {post.title}
       </h3>
 
-      {/* Contenido en columnas */}
       <section className="flex gap-8">
-        {/* Columna imagen con efecto vintage */}
         <div
           className="flex-1/2  relative bg-gray-100 h-48 overflow-hidden 
                         group-hover:bg-gray-200/50 transition-all duration-500"

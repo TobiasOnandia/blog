@@ -4,4 +4,8 @@ import { inferRouterOutputs } from "@trpc/server";
 type RouterOutput = inferRouterOutputs<AppRouter>;
 type PostType = RouterOutput["post"]["byId"];
 
-export type { PostType };
+type PostAllType = RouterOutput["post"]["list"]["posts"][number];
+interface ViewAllPost {
+  post: PostAllType;
+}
+export type { PostType, ViewAllPost };

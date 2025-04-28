@@ -1,22 +1,11 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
+import { useSearch } from "@/hooks/useSearch";
+import { useSearchParams } from "next/navigation";
 
 export function Search() {
   const searchParams = useSearchParams();
-  const { replace } = useRouter();
-
-  const handleSearch = useDebouncedCallback((term: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    if (term) {
-      params.set("search", term);
-    } else {
-      params.delete("search");
-    }
-
-    replace(`?${params.toString()}`);
-  }, 300);
+  const handleSearch = useSearch();
 
   return (
     <input
