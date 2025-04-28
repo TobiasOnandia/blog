@@ -115,16 +115,17 @@ export const postRouter = router({
         id: z.string().cuid(),
         title: z.string().min(1, "El título es requerido"),
         category: z.string().min(1, "La categoría es requerida"),
+        status: z.enum(["BORRADOR", "PUBLICADO"]),
         content: z
           .string()
           .min(5, "El contenido debe tener al menos 5 caracteres"),
       })
     )
     .mutation(async ({ ctx, input }) => {
-      const { id, title, category, content } = input;
+      const { id, title, category, content, status } = input;
       const post = await ctx.prisma.post.update({
         where: { id },
-        data: { title, category, content },
+        data: { title, category, content, status },
       });
       return post;
     }),

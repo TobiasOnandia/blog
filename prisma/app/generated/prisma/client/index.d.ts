@@ -20,7 +20,10 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
 /**
  * Model Post
- * 
+ * The Post model represents a blog post or article.
+ * It includes fields for title, content, category, and status.
+ * Each post is associated with an author and can have multiple comments and votes.
+ * The slug field is unique for each post.
  */
 export type Post = $Result.DefaultSelection<Prisma.$PostPayload>
 /**
@@ -45,11 +48,23 @@ export namespace $Enums {
 
 export type Role = (typeof Role)[keyof typeof Role]
 
+
+export const Status: {
+  BORRADOR: 'BORRADOR',
+  PUBLICADO: 'PUBLICADO'
+};
+
+export type Status = (typeof Status)[keyof typeof Status]
+
 }
 
 export type Role = $Enums.Role
 
 export const Role: typeof $Enums.Role
+
+export type Status = $Enums.Status
+
+export const Status: typeof $Enums.Status
 
 /**
  * ##  Prisma Client ʲˢ
@@ -2426,6 +2441,7 @@ export namespace Prisma {
     id: string | null
     title: string | null
     category: string | null
+    status: $Enums.Status | null
     slug: string | null
     published: boolean | null
     authorId: string | null
@@ -2437,6 +2453,7 @@ export namespace Prisma {
     id: string | null
     title: string | null
     category: string | null
+    status: $Enums.Status | null
     slug: string | null
     published: boolean | null
     authorId: string | null
@@ -2449,6 +2466,7 @@ export namespace Prisma {
     title: number
     content: number
     category: number
+    status: number
     slug: number
     published: number
     authorId: number
@@ -2462,6 +2480,7 @@ export namespace Prisma {
     id?: true
     title?: true
     category?: true
+    status?: true
     slug?: true
     published?: true
     authorId?: true
@@ -2473,6 +2492,7 @@ export namespace Prisma {
     id?: true
     title?: true
     category?: true
+    status?: true
     slug?: true
     published?: true
     authorId?: true
@@ -2485,6 +2505,7 @@ export namespace Prisma {
     title?: true
     content?: true
     category?: true
+    status?: true
     slug?: true
     published?: true
     authorId?: true
@@ -2570,6 +2591,7 @@ export namespace Prisma {
     title: string
     content: JsonValue
     category: string
+    status: $Enums.Status
     slug: string
     published: boolean
     authorId: string
@@ -2599,6 +2621,7 @@ export namespace Prisma {
     title?: boolean
     content?: boolean
     category?: boolean
+    status?: boolean
     slug?: boolean
     published?: boolean
     authorId?: boolean
@@ -2615,6 +2638,7 @@ export namespace Prisma {
     title?: boolean
     content?: boolean
     category?: boolean
+    status?: boolean
     slug?: boolean
     published?: boolean
     authorId?: boolean
@@ -2628,6 +2652,7 @@ export namespace Prisma {
     title?: boolean
     content?: boolean
     category?: boolean
+    status?: boolean
     slug?: boolean
     published?: boolean
     authorId?: boolean
@@ -2641,6 +2666,7 @@ export namespace Prisma {
     title?: boolean
     content?: boolean
     category?: boolean
+    status?: boolean
     slug?: boolean
     published?: boolean
     authorId?: boolean
@@ -2648,7 +2674,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "category" | "slug" | "published" | "authorId" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
+  export type PostOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "content" | "category" | "status" | "slug" | "published" | "authorId" | "createdAt" | "updatedAt", ExtArgs["result"]["post"]>
   export type PostInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     author?: boolean | Post$authorArgs<ExtArgs>
     comments?: boolean | Post$commentsArgs<ExtArgs>
@@ -2674,6 +2700,7 @@ export namespace Prisma {
       title: string
       content: Prisma.JsonValue
       category: string
+      status: $Enums.Status
       slug: string
       published: boolean
       authorId: string
@@ -3109,6 +3136,7 @@ export namespace Prisma {
     readonly title: FieldRef<"Post", 'String'>
     readonly content: FieldRef<"Post", 'Json'>
     readonly category: FieldRef<"Post", 'String'>
+    readonly status: FieldRef<"Post", 'Status'>
     readonly slug: FieldRef<"Post", 'String'>
     readonly published: FieldRef<"Post", 'Boolean'>
     readonly authorId: FieldRef<"Post", 'String'>
@@ -5862,6 +5890,7 @@ export namespace Prisma {
     title: 'title',
     content: 'content',
     category: 'category',
+    status: 'status',
     slug: 'slug',
     published: 'published',
     authorId: 'authorId',
@@ -5998,6 +6027,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Status'
+   */
+  export type EnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status'>
+    
+
+
+  /**
+   * Reference to a field of type 'Status[]'
+   */
+  export type ListEnumStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Status[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -6105,6 +6148,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: JsonFilter<"Post">
     category?: StringFilter<"Post"> | string
+    status?: EnumStatusFilter<"Post"> | $Enums.Status
     slug?: StringFilter<"Post"> | string
     published?: BoolFilter<"Post"> | boolean
     authorId?: StringFilter<"Post"> | string
@@ -6120,6 +6164,7 @@ export namespace Prisma {
     title?: SortOrder
     content?: SortOrder
     category?: SortOrder
+    status?: SortOrder
     slug?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
@@ -6139,6 +6184,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: JsonFilter<"Post">
     category?: StringFilter<"Post"> | string
+    status?: EnumStatusFilter<"Post"> | $Enums.Status
     published?: BoolFilter<"Post"> | boolean
     authorId?: StringFilter<"Post"> | string
     createdAt?: DateTimeFilter<"Post"> | Date | string
@@ -6153,6 +6199,7 @@ export namespace Prisma {
     title?: SortOrder
     content?: SortOrder
     category?: SortOrder
+    status?: SortOrder
     slug?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
@@ -6171,6 +6218,7 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Post"> | string
     content?: JsonWithAggregatesFilter<"Post">
     category?: StringWithAggregatesFilter<"Post"> | string
+    status?: EnumStatusWithAggregatesFilter<"Post"> | $Enums.Status
     slug?: StringWithAggregatesFilter<"Post"> | string
     published?: BoolWithAggregatesFilter<"Post"> | boolean
     authorId?: StringWithAggregatesFilter<"Post"> | string
@@ -6398,6 +6446,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -6412,6 +6461,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     authorId: string
@@ -6426,6 +6476,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6440,6 +6491,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
@@ -6454,6 +6506,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     authorId: string
@@ -6466,6 +6519,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6477,6 +6531,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
@@ -6830,6 +6885,13 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type EnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -6845,6 +6907,7 @@ export namespace Prisma {
     title?: SortOrder
     content?: SortOrder
     category?: SortOrder
+    status?: SortOrder
     slug?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
@@ -6856,6 +6919,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     category?: SortOrder
+    status?: SortOrder
     slug?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
@@ -6867,6 +6931,7 @@ export namespace Prisma {
     id?: SortOrder
     title?: SortOrder
     category?: SortOrder
+    status?: SortOrder
     slug?: SortOrder
     published?: SortOrder
     authorId?: SortOrder
@@ -6898,6 +6963,16 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedJsonFilter<$PrismaModel>
     _max?: NestedJsonFilter<$PrismaModel>
+  }
+
+  export type EnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
   }
 
   export type BoolWithAggregatesFilter<$PrismaModel = never> = {
@@ -7145,6 +7220,10 @@ export namespace Prisma {
     connectOrCreate?: VoteCreateOrConnectWithoutPostInput | VoteCreateOrConnectWithoutPostInput[]
     createMany?: VoteCreateManyPostInputEnvelope
     connect?: VoteWhereUniqueInput | VoteWhereUniqueInput[]
+  }
+
+  export type EnumStatusFieldUpdateOperationsInput = {
+    set?: $Enums.Status
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -7432,6 +7511,13 @@ export namespace Prisma {
     _max?: NestedEnumRoleFilter<$PrismaModel>
   }
 
+  export type NestedEnumStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusFilter<$PrismaModel> | $Enums.Status
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -7460,6 +7546,16 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedEnumStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.Status | EnumStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.Status[] | ListEnumStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumStatusWithAggregatesFilter<$PrismaModel> | $Enums.Status
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumStatusFilter<$PrismaModel>
+    _max?: NestedEnumStatusFilter<$PrismaModel>
+  }
+
   export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
@@ -7473,6 +7569,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -7486,6 +7583,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -7580,6 +7678,7 @@ export namespace Prisma {
     title?: StringFilter<"Post"> | string
     content?: JsonFilter<"Post">
     category?: StringFilter<"Post"> | string
+    status?: EnumStatusFilter<"Post"> | $Enums.Status
     slug?: StringFilter<"Post"> | string
     published?: BoolFilter<"Post"> | boolean
     authorId?: StringFilter<"Post"> | string
@@ -7831,6 +7930,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -7844,6 +7944,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     authorId: string
@@ -7910,6 +8011,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7923,6 +8025,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
@@ -7967,6 +8070,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -7980,6 +8084,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     authorId: string
@@ -8046,6 +8151,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8059,6 +8165,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     authorId?: StringFieldUpdateOperationsInput | string
@@ -8072,6 +8179,7 @@ export namespace Prisma {
     title: string
     content: JsonNullValueInput | InputJsonValue
     category: string
+    status?: $Enums.Status
     slug: string
     published?: boolean
     createdAt?: Date | string
@@ -8099,6 +8207,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8112,6 +8221,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8125,6 +8235,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     content?: JsonNullValueInput | InputJsonValue
     category?: StringFieldUpdateOperationsInput | string
+    status?: EnumStatusFieldUpdateOperationsInput | $Enums.Status
     slug?: StringFieldUpdateOperationsInput | string
     published?: BoolFieldUpdateOperationsInput | boolean
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string

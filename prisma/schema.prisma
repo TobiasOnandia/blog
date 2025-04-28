@@ -22,11 +22,16 @@ model User {
   votes Vote[]
 }
 
+/// The Post model represents a blog post or article.
+/// It includes fields for title, content, category, and status.
+/// Each post is associated with an author and can have multiple comments and votes.
+/// The slug field is unique for each post.
 model Post {
   id String @id @default(cuid())
   title String
   content Json
   category String
+  status Status @default(BORRADOR)
   slug String @unique
   published Boolean @default(false)
   author User? @relation(fields: [authorId], references: [id])
@@ -62,4 +67,9 @@ model Vote {
 enum Role {
   USER
   ADMIN
+}
+
+enum Status {
+  BORRADOR
+  PUBLICADO
 }

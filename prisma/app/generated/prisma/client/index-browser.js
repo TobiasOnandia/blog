@@ -133,6 +133,7 @@ exports.Prisma.PostScalarFieldEnum = {
   title: 'title',
   content: 'content',
   category: 'category',
+  status: 'status',
   slug: 'slug',
   published: 'published',
   authorId: 'authorId',
@@ -185,6 +186,11 @@ exports.Prisma.JsonNullValueFilter = {
 exports.Role = exports.$Enums.Role = {
   USER: 'USER',
   ADMIN: 'ADMIN'
+};
+
+exports.Status = exports.$Enums.Status = {
+  BORRADOR: 'BORRADOR',
+  PUBLICADO: 'PUBLICADO'
 };
 
 exports.Prisma.ModelName = {

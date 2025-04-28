@@ -34,8 +34,7 @@ export default async function AdminPostEditPage({
             {post?.id ? "Editar Crónica" : "Nueva Crónica"}
           </h1>
           <span className="bg-black text-white px-3 py-1 text-sm uppercase">
-            {/* {post?.status || "BORRADOR"} */}
-            BORRADOR
+            {post?.status}
           </span>
         </div>
         <div className="flex gap-4 text-sm text-gray-600">

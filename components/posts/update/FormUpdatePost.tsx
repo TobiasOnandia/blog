@@ -1,11 +1,16 @@
 "use client";
+import { Status } from "@/prisma/app/generated/prisma/client";
 import { trpc } from "@/utils/trpc";
+import { useRouter } from "next/navigation";
 import { useActionState } from "react";
 import { toast } from "sonner";
 
 export const FormUpdatePost = ({ id }: { id: string }) => {
   const utils = trpc.useUtils();
   const { data: post } = trpc.post.byId.useQuery(id);
+  const router = useRouter();
+
+  console.log(post);
 
   const updatePost = trpc.post.update.useMutation({
     onSuccess: () => {
@@ -19,7 +24,7 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
 
   const [_, formAction, isLoading] = useActionState(
     (_: void | null, formData: FormData) => {
-      const { title, content, category } = Object.fromEntries(
+      const { title, content, category, status } = Object.fromEntries(
         formData.entries()
       );
 
@@ -28,7 +33,10 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
         title: title as string,
         content: content as string,
         category: category as string,
+        status: status as Status,
       });
+
+      router.refresh();
     },
     null
   );
@@ -63,7 +71,8 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
               type="radio"
               id="statusDraft"
               name="status"
-              value="DRAFT"
+              value="BORRADOR"
+              defaultChecked={post?.status === "BORRADOR"}
               className="sr-only peer/draft"
             />
             <label
@@ -81,7 +90,8 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
               type="radio"
               id="statusPublished"
               name="status"
-              value="PUBLISHED"
+              value="PUBLICADO"
+              defaultChecked={post?.status === "PUBLICADO"}
               className="sr-only peer"
             />
             <label
