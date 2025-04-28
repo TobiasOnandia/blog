@@ -31,7 +31,7 @@ export const FormUpdatePost = ({ id }: { id: string }) => {
     },
   });
 
-  const [_, formAction, isLoading] = useActionState(
+  const [, formAction, isLoading] = useActionState(
     (_: void | null, formData: FormData) => {
       const { title, content, category, status } = Object.fromEntries(
         formData.entries()

@@ -32,7 +32,7 @@ export const Comment = ({
     },
   });
 
-  const [_, formAction, isLoading] = useActionState(
+  const [, formAction, isLoading] = useActionState(
     (_: void | null, formData: FormData) => {
       const content = formData.get("content") as string;
       createCommentChildren.mutate({

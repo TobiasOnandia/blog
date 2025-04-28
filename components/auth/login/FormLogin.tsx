@@ -5,7 +5,7 @@ import { useActionState } from "react";
 import { toast } from "sonner";
 
 export const FormLogin = () => {
-  const [_, formAction, isPending] = useActionState(
+  const [, formAction, isPending] = useActionState(
     async (_: void | null, formData: FormData) => {
       const { email, password } = window.Object.fromEntries(formData.entries());
       const supabase = createClient();

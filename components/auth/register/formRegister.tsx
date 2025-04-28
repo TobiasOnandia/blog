@@ -4,8 +4,8 @@ import { useActionState } from "react";
 import { toast } from "sonner";
 
 export const RegisterForm = () => {
-  const [state, formAction, isPending] = useActionState(
-    async (state: void | null, formData: FormData) => {
+  const [, formAction, isPending] = useActionState(
+    async (_: void | null, formData: FormData) => {
       const { name, email, password } = window.Object.fromEntries(
         formData.entries()
       );

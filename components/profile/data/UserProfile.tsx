@@ -24,7 +24,7 @@ export const UserProfile = () => {
     },
   });
 
-  const [_, formAction, isLoading] = useActionState(
+  const [, formAction, isLoading] = useActionState(
     (_: void | null, formData: FormData) => {
       const name = formData.get("name");
       if (!name) {

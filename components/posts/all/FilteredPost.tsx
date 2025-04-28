@@ -1,4 +1,3 @@
-import { BubbleIcon } from "@/components/icons";
 import { useFilter } from "@/hooks/useFilter";
 export const FilteredPost = () => {
   const filteredPosts = useFilter();

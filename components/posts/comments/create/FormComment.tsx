@@ -19,7 +19,7 @@ export const FormComment = ({ id }: { id: string }) => {
     },
   });
 
-  const [state, formAction, isPending] = useActionState(
+  const [, formAction, isPending] = useActionState(
     (_: void | null, formData: FormData) => {
       const { content } = Object.fromEntries(formData.entries());
 
@@ -35,7 +35,7 @@ export const FormComment = ({ id }: { id: string }) => {
           postId: id,
         });
       } catch (error) {
-        toast.error("Error al crear el comentario");
+        toast.error((error as Error).message);
       }
     },
     null

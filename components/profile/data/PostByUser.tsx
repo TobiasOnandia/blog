@@ -1,11 +1,5 @@
 "use client";
-import {
-  ArrowUpIcon,
-  ChartBarIcon,
-  ChartBubbleIcon,
-  DotsIcon,
-  PencilIcon,
-} from "@/components/icons";
+import { PencilIcon } from "@/components/icons";
 import { useUser } from "@/hooks/useUser";
 import { trpc } from "@/utils/trpc";
 import { User } from "@supabase/supabase-js";
@@ -28,11 +22,11 @@ export const PostByUser = () => {
       {userPosts.data.map((post) => (
         <article
           key={post.id}
-          className="group relative mb-4 border-l-2 border-black/20 pl-6 py-6 hover:border-black/40 transition-all duration-300"
+          className="group relative mb-4 border-l-2 border-black/20 pl-6 py-3  hover:border-black/40 transition-all duration-300"
         >
-          <section className="flex flex-col md:flex-row justify-between gap-4">
+          <section className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Contenido principal */}
-            <div className="flex-1">
+            <header className="flex-1">
               <p className="mb-2 flex items-center gap-3">
                 <span className="bg-black/5 px-3 py-1 text-xs uppercase tracking-widest">
                   {post.category}
@@ -52,31 +46,16 @@ export const PostByUser = () => {
 
               <p className="text-gray-700 line-clamp-2 mb-4">
                 {post.content as string}
-                <a
-                  href={`/post/edit/${post.id}`}
-                  className="ml-2 text-black/60 hover:text-black/90 transition-colors"
-                >
-                  → Leer más
-                </a>
               </p>
-            </div>
+            </header>
 
-            {/* Metadatos y acciones */}
-            <div className="flex items-center gap-3">
-              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
-                <PencilIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
-              </button>
-              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
-                <ArrowUpIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
-              </button>
-              <button className="p-2 hover:bg-black/5 rounded-full transition-colors">
-                <DotsIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
-              </button>
-            </div>
+            <a
+              href={`/post/edit/${post.id}`}
+              className="p-2 hover:bg-black/5 mr-4 h-fit flex  rounded-full transition-colors"
+            >
+              <PencilIcon className="w-6 h-6 text-black/60 hover:text-black/90" />
+            </a>
           </section>
-
-          {/* Efecto hover */}
-          <div className="absolute inset-0 -z-10 group-hover:bg-black/3 transition-colors duration-300" />
         </article>
       ))}
     </>

@@ -45,8 +45,7 @@ export const ViewPosts = ({ post }: ViewAllPost) => {
                                  group-hover:border-sky-600 group-hover:translate-x-2 
                                  transition-all duration-500"
           >
-            "La innovación requiere visión y coraje para desafiar lo
-            establecido"
+            La innovación requiere visión y coraje para desafiar lo establecido
           </blockquote>
 
           {/* Acción y detalles */}

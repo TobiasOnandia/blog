@@ -1,4 +1,3 @@
-import { httpBatchLink } from "@trpc/client";
 import { appRouter } from "@/server/routers/_app";
 import { createTRPCContext } from "@/server/trpc";
 import { headers } from "next/headers";

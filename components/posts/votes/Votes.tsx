@@ -1,10 +1,8 @@
 "use client";
 
-import { HeartIcon } from "@/components/icons";
 import { useUser } from "@/hooks/useUser";
 import { trpc } from "@/utils/trpc";
 import { User } from "@supabase/supabase-js";
-import { toast } from "sonner";
 import { Dislike } from "./dislike/DisLike";
 import { Likes } from "./likes/Likes";
 

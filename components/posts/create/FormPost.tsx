@@ -16,7 +16,7 @@ export const FormPost = () => {
     },
   });
 
-  const [state, formAction, isPending] = useActionState(
+  const [, formAction, isPending] = useActionState(
     async (_: void | null, formData: FormData) => {
       const { title, category, content } = window.Object.fromEntries(
         formData.entries()
@@ -33,8 +33,12 @@ export const FormPost = () => {
           category: category as string,
           content: content as string,
         });
-      } catch (error) {
-        toast.error("Error al crear el post");
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          toast.error(error.message);
+        } else {
+          toast.error("Ocurrió un error inesperado");
+        }
       }
     },
     null

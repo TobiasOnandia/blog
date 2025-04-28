@@ -1,7 +1,7 @@
 import { FormLogin } from "@/components/auth/login/FormLogin";
 import { SignInWithGoogle } from "@/components/auth/SignInWithGoogle";
 
-export default function LoginPage() {
+export default function Page() {
   return (
     <main className="min-h-screen py-8 flex items-center justify-center ">
       <section className="w-full  border-2 border-black/20 relative p-8 md:p-12  shadow-lg">
@@ -64,7 +64,7 @@ export default function LoginPage() {
             <SignInWithGoogle
               className="w-full py-3 cursor-pointer flex gap-2 items-center justify-center bg-white border-2 border-black/20 uppercase tracking-widest
                     hover:border-black/60 hover:bg-black/5 transition-all duration-300"
-            />{" "}
+            />
             {/* Usar el componente real */}
             <footer className="flex flex-col mt-6 md:mt-8">
               <a
@@ -74,8 +74,6 @@ export default function LoginPage() {
                 ¿Nuevo colaborador? Registrate
               </a>
               <p className="text-sm text-gray-600 mt-4 text-center md:text-left">
-                {" "}
-                {/* Centrado en móvil */}
                 <a href="/password-reset" className="hover:underline">
                   Recuperar acceso
                 </a>
@@ -86,7 +84,7 @@ export default function LoginPage() {
         <p className="mt-12 text-center text-sm text-gray-500">
           ISSN 0123-4567 | Todos los derechos reservados
         </p>
-      </section>{" "}
+      </section>
     </main>
   );
 }

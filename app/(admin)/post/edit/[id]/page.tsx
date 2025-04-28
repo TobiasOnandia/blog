@@ -1,9 +1,5 @@
 import { FormUpdatePost } from "@/components/posts/update/FormUpdatePost";
-import { appRouter } from "@/server/routers/_app";
-import { createCallerFactory, createTRPCContext } from "@/server/trpc";
-import { PostType } from "@/types/PostType";
-import { headers } from "next/headers";
-import { notFound } from "next/navigation";
+import { postById } from "@/server/posts/postById";
 
 export default async function AdminPostEditPage({
   params,
@@ -11,20 +7,7 @@ export default async function AdminPostEditPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
-
-  let post: PostType | null = null;
-  try {
-    const context = await createTRPCContext({ headers: await headers() });
-    const createCaller = createCallerFactory(appRouter);
-    const caller = createCaller(context);
-    post = await caller.post.byId(id);
-  } catch (error) {
-    console.error(`Failed to fetch post with id ${id}:`, error);
-  }
-  if (!post) {
-    notFound();
-  }
-
+  const post = await postById({ id });
   return (
     <main className="py-4">
       {/* Encabezado editorial */}
