@@ -5,21 +5,21 @@ import { publicProcedure } from "@/server/trpc";
 export const commentRouter = router({
   create: publicProcedure
     .input(
-      z
-        .object({
-          content: z.string(),
-          authorId: z.string().uuid(),
-          postId: z.string().cuid(),
-        })
-        .required()
+      z.object({
+        content: z.string(),
+        authorId: z.string().uuid(),
+        postId: z.string().cuid(),
+        parentCommentId: z.string().cuid().optional(),
+      })
     )
     .mutation(async ({ ctx, input }) => {
-      const { content, authorId, postId } = input;
+      const { content, authorId, postId, parentCommentId } = input;
       const comment = await ctx.prisma.comment.create({
         data: {
           content,
           author: { connect: { id: authorId } },
           post: { connect: { id: postId } },
+          parentCommentId: parentCommentId,
         },
       });
       return comment;

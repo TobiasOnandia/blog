@@ -11,7 +11,7 @@ export const FormComment = ({ id }: { id: string }) => {
 
   const createCommentMutation = trpc.comment.create.useMutation({
     onSuccess: () => {
-      utils.comment.list.invalidate();
+      utils.comment.byPost.invalidate(id);
       toast.success("Comentario creado exitosamente");
     },
     onError: (error) => {
@@ -44,7 +44,7 @@ export const FormComment = ({ id }: { id: string }) => {
   return (
     <form action={formAction} className="mb-12">
       <textarea
-        className="w-full p-4 border border-black/20 mb-4 rounded focus:outline-none focus:ring-1 focus:ring-black/50"
+        className="w-full p-4 border resize-none border-black/20 mb-4 rounded focus:outline-none focus:ring-1 focus:ring-black/50"
         placeholder="Escribe tu comentario..."
         rows={3}
         name="content"
