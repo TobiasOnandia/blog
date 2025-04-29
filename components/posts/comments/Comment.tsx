@@ -1,21 +1,16 @@
 import { useActionState, useState } from "react";
 import { toast } from "sonner";
-import { Comment as TComment } from "@prisma/client";
 import { trpc } from "@/utils/trpc";
-
-export interface CommentWithChildren extends TComment {
-  author?: { name: string } | null;
-  children?: CommentWithChildren[];
-}
+import { Comment as TComment } from "@/prisma/app/generated/prisma/client";
 
 export const Comment = ({
   comment,
   depth = 0,
   allComments,
 }: {
-  comment: CommentWithChildren;
+  comment: TComment & { author: { name: string } | null };
   depth?: number;
-  allComments: CommentWithChildren[];
+  allComments: (TComment & { author: { name: string } | null })[];
 }) => {
   const [showReplyForm, setShowReplyForm] = useState(false);
   const utils = trpc.useUtils();
