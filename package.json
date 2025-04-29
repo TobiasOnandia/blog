@@ -6,18 +6,21 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest"
   },
   "dependencies": {
     "@supabase/ssr": "^0.6.1",
     "@supabase/supabase-js": "^2.49.4",
     "@svgr/webpack": "^8.1.0",
     "@tanstack/react-query": "^5.74.7",
+    "@testing-library/jest-dom": "^6.6.3",
     "@trpc/client": "^11.1.1",
     "@trpc/next": "^11.1.1",
     "@trpc/react-query": "^11.1.1",
     "@trpc/server": "^11.1.1",
     "@trpc/tanstack-react-query": "^11.1.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "next": "15.3.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
@@ -28,15 +31,23 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.3.1",
     "@prisma/client": "^6.6.0",
     "@tailwindcss/postcss": "^4.1.4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
     "eslint": "^9.25.1",
     "eslint-config-next": "15.3.1",
+    "jsdom": "^26.1.0",
     "prisma": "^6.6.0",
     "tailwindcss": "^4.1.4",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.1.2"
   }
 }

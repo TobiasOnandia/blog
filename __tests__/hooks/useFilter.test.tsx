@@ -1,17 +1,17 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { renderHook } from '@testing-library/react';
-import { useFilter } from '@/hooks/useFilter'; // Adjust the import path if needed
+import { describe, it, expect, beforeEach, vi } from "vitest";
+import { renderHook } from "@testing-library/react";
+import { useFilter } from "@/hooks/useFilter"; // Adjust the import path if needed
 
 // Mocking Next.js navigation hooks
 // We need to mock the module itself
-vi.mock('next/navigation', () => ({
+vi.mock("next/navigation", () => ({
   useSearchParams: vi.fn(), // Mock useSearchParams as a spy
 }));
 
 // Mocking tRPC hook
 // Assuming 'trpc' is imported from somewhere like '@/utils/trpc'
 // We need to mock the specific hook path used in your code
-vi.mock('@/utils/trpc', () => ({
+vi.mock("@/utils/trpc", () => ({
   trpc: {
     post: {
       list: {
@@ -22,18 +22,18 @@ vi.mock('@/utils/trpc', () => ({
 }));
 
 // Import the mocked modules for type safety and access to mocks
-import { useSearchParams } from 'next/navigation';
-import { trpc } from '@/utils/trpc';
+import { useSearchParams } from "next/navigation";
+import { trpc } from "@/utils/trpc";
 
 // Sample data to use in tests
 const mockPosts = [
-  { id: '1', title: 'First Post About Tech', category: 'Technology' },
-  { id: '2', title: 'Second Post About Food', category: 'Food' },
-  { id: '3', title: 'Third Tech Post', category: 'Technology' },
-  { id: '4', title: 'Another Food Recipe', category: 'Food' },
+  { id: "1", title: "First Post About Tech", category: "Technology" },
+  { id: "2", title: "Second Post About Food", category: "Food" },
+  { id: "3", title: "Third Tech Post", category: "Technology" },
+  { id: "4", title: "Another Food Recipe", category: "Food" },
 ];
 
-describe('useFilter', () => {
+describe("useFilter", () => {
   let mockUseSearchParams: vi.Mock;
   let mockUseQuery: vi.Mock;
 
@@ -48,8 +48,8 @@ describe('useFilter', () => {
     // Default mock for useSearchParams: no search or category
     mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return '';
-        if (param === 'category') return '';
+        if (param === "search") return "";
+        if (param === "category") return "";
         return null;
       }),
     });
@@ -64,7 +64,7 @@ describe('useFilter', () => {
     });
   });
 
-  it('should return all posts when no search query or category is provided', () => {
+  it("should return all posts when no search query or category is provided", () => {
     // No specific overrides needed for default mocks
 
     const { result } = renderHook(() => useFilter());
@@ -73,12 +73,12 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(4);
   });
 
-  it('should filter posts by search query (case-insensitive)', () => {
+  it("should filter posts by search query (case-insensitive)", () => {
     // Override useSearchParams mock for this test
     mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return 'tech'; // Use lowercase 'tech'
-        if (param === 'category') return '';
+        if (param === "search") return "tech"; // Use lowercase 'tech'
+        if (param === "category") return "";
         return null;
       }),
     });
@@ -94,12 +94,12 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(2);
   });
 
-  it('should filter posts by category', () => {
+  it("should filter posts by category", () => {
     // Override useSearchParams mock for this test
     mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return '';
-        if (param === 'category') return 'Food';
+        if (param === "search") return "";
+        if (param === "category") return "Food";
         return null;
       }),
     });
@@ -115,12 +115,12 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(2);
   });
 
-  it('should filter posts by both search query and category', () => {
+  it("should filter posts by both search query and category", () => {
     // Override useSearchParams mock for this test
     mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return 'post';
-        if (param === 'category') return 'Technology';
+        if (param === "search") return "post";
+        if (param === "category") return "Technology";
         return null;
       }),
     });
@@ -136,7 +136,7 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(2);
   });
 
-  it('should return an empty array if tRPC data is undefined', () => {
+  it("should return an empty array if tRPC data is undefined", () => {
     // Override useQuery mock for this test
     mockUseQuery.mockReturnValue({
       data: undefined, // Simulate initial loading state or error
@@ -149,7 +149,7 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(0);
   });
 
-  it('should return an empty array if tRPC data.posts is undefined', () => {
+  it("should return an empty array if tRPC data.posts is undefined", () => {
     // Override useQuery mock for this test
     mockUseQuery.mockReturnValue({
       data: {}, // Simulate a data structure without the posts array
@@ -162,7 +162,7 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(0);
   });
 
-  it('should return an empty array if tRPC data.posts is an empty array', () => {
+  it("should return an empty array if tRPC data.posts is an empty array", () => {
     // Override useQuery mock for this test
     mockUseQuery.mockReturnValue({
       data: {
@@ -174,12 +174,11 @@ describe('useFilter', () => {
     // Set some filter parameters to ensure they don't cause errors
     mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return 'anything';
-        if (param === 'category') return 'any';
+        if (param === "search") return "anything";
+        if (param === "category") return "any";
         return null;
       }),
     });
-
 
     const { result } = renderHook(() => useFilter());
 
@@ -187,11 +186,11 @@ describe('useFilter', () => {
     expect(result.current.length).toBe(0);
   });
 
-  it('should handle search query and category that match nothing', () => {
-     mockUseSearchParams.mockReturnValue({
+  it("should handle search query and category that match nothing", () => {
+    mockUseSearchParams.mockReturnValue({
       get: vi.fn((param: string) => {
-        if (param === 'search') return 'nonexistent';
-        if (param === 'category') return 'none';
+        if (param === "search") return "nonexistent";
+        if (param === "category") return "none";
         return null;
       }),
     });
