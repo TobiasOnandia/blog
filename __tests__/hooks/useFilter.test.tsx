@@ -34,7 +34,9 @@ const mockPosts = [
 ];
 
 describe("useFilter", () => {
+  // @ts-expect-error: Namespace 'vi' not found.
   let mockUseSearchParams: vi.Mock;
+  // @ts-expect-error: Namespace 'vi' not found.
   let mockUseQuery: vi.Mock;
 
   beforeEach(() => {
@@ -42,7 +44,9 @@ describe("useFilter", () => {
     vi.resetAllMocks();
 
     // Get the mocked functions
+    // @ts-expect-error: Namespace 'vi' not found.
     mockUseSearchParams = useSearchParams as vi.Mock;
+    // @ts-expect-error: Namespace 'vi' not found.
     mockUseQuery = trpc.post.list.useQuery as vi.Mock;
 
     // Default mock for useSearchParams: no search or category

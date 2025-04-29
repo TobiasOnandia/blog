@@ -15,8 +15,11 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useCategories } from "@/hooks/useCategories"; // Ajusta la ruta de importación si es necesario
 
 describe("useCategories", () => {
+  // @ts-expect-error: Namespace 'vi' not found.
   let mockUseSearchParams: vi.Mock;
+  // @ts-expect-error: Namespace 'vi' not found.
   let mockUseRouter: vi.Mock;
+  // @ts-expect-error: Namespace 'vi' not found.
   let mockReplace: vi.Mock; // Para guardar la función replace mockeada
 
   beforeEach(() => {
@@ -24,7 +27,9 @@ describe("useCategories", () => {
     vi.resetAllMocks();
 
     // Obtenemos las funciones mockeadas
+    // @ts-expect-error: Namespace 'vi' not found.
     mockUseSearchParams = useSearchParams as vi.Mock;
+    // @ts-expect-error: Namespace 'vi' not found.
     mockUseRouter = useRouter as vi.Mock;
 
     // Creamos un mock para la función replace del router

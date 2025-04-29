@@ -15,7 +15,9 @@ vi.mock("@/hooks/useSearch", () => ({
 }));
 
 describe("Search Component", () => {
+  // @ts-expect-error: Namespace 'vi' not found.
   const mockUseSearchParams = useSearchParams as vi.Mock;
+  // @ts-expect-error: Namespace 'vi' not found.
   const mockUseSearch = useSearch as vi.Mock;
 
   beforeEach(() => {
