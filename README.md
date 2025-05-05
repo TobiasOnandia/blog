@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 BlogApp - Tu Espacio para Compartir Ideas
 
-## Getting Started
+¡Bienvenido a BlogApp! Una moderna plataforma de blog construida con las últimas tecnologías para ofrecer una experiencia de usuario fluida y un desarrollo robusto. Comparte tus pensamientos, interactúa con la comunidad a través de comentarios anidados y gestiona tu contenido fácilmente.
 
-First, run the development server:
+## ✨ Características Principales
+
+* 📝 **Crea y Edita Posts:** Publica tus artículos y mantén tu contenido actualizado.
+* 🗣️ **Comentarios Anidados:** Fomenta discusiones detalladas y organizadas en cada post.
+* 🔐 **Autenticación Segura:** Gestiona tu cuenta y protege tu contenido.
+* 🛡️ **Edita Solo tus Posts:** Control total sobre tus propias publicaciones.
+* 🔬 **Cubierto por Tests:** Fiabilidad garantizada con tests escritos en Vitest.
+* 🔔 **Notificaciones Elegantes:** Recibe feedback instantáneo con Sonner.
+
+## 🛠️ Tecnologías Utilizadas
+
+Este proyecto ha sido construido utilizando un stack moderno y potente:
+
+* **Frontend/Framework:** [Next.js 15](https://nextjs.org/) (React Framework)
+* **Lenguaje:** [TypeScript](https://www.typescriptlang.org/) (JavaScript con tipado estático)
+* **Estilos:** [Tailwind CSS](https://tailwindcss.com/) (Framework CSS utility-first)
+* **Base de Datos/ORM:** [Prisma](https://www.prisma.io/) (ORM de nueva generación)
+* **Backend como Servicio (Auth & DB):** [Supabase](https://supabase.io/) (Alternativa Open Source a Firebase)
+* **Capa de API:** [tRPC](https://trpc.io/) (API End-to-end segura en tipos)
+* **Validación de Esquemas:** [Zod](https://zod.dev/) (Declaración y validación de esquemas con tipado estático)
+* **Testing:** [Vitest](https://vitest.dev/) (Framework de pruebas unitarias rápido)
+* **Toasts/Notificaciones:** [Sonner](https://sonner.emrebunar.com/) (Componente Toast elegante y accesible)
+
+*(Considera añadir badges para cada tecnología si quieres que visualmente sea más atractivo. Puedes generarlos en sitios como shields.io)*
+
+## 🚀 Empezando
+
+*(Aquí podrías añadir una pequeña sección explicando cómo clonar el repo, instalar dependencias y correr el proyecto localmente. Algo como:)*
+
+1.  Clona el repositorio: `git clone [URL_DEL_REPOSITORIO]`
+2.  Instala las dependencias: `pnpm install` (o `npm install`, `yarn install`)
+3.  Configura tus variables de entorno (base de datos Supabase, etc.) en un archivo `.env`.
+4.  Ejecuta las migraciones de Prisma: `pnpm prisma migrate dev`
+5.  Inicia la aplicación: `pnpm dev`
+
+## ✅ Tests
+
+Los tests unitarios se ejecutan con Vitest. Puedes correrlos con el comando:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+pnpm test
