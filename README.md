@@ -31,8 +31,8 @@ Este proyecto ha sido construido utilizando un stack moderno y potente:
 
 *(Aquí podrías añadir una pequeña sección explicando cómo clonar el repo, instalar dependencias y correr el proyecto localmente. Algo como:)*
 
-1.  Clona el repositorio: `git clone [URL_DEL_REPOSITORIO]`
-2.  Instala las dependencias: `pnpm install` (o `npm install`, `yarn install`)
+1.  Clona el repositorio: git clone [[URL_DEL_REPOSITORIO]](https://github.com/TobiasOnandia/blog.git)
+2.  Instala las dependencias: pnpm install (o npm install, yarn install)
 3.  Configura tus variables de entorno (base de datos Supabase, etc.) en un archivo `.env`.
 4.  Ejecuta las migraciones de Prisma: `pnpm prisma migrate dev`
 5.  Inicia la aplicación: `pnpm dev`
