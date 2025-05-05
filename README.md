@@ -25,11 +25,8 @@ Este proyecto ha sido construido utilizando un stack moderno y potente:
 * **Testing:** [Vitest](https://vitest.dev/) (Framework de pruebas unitarias rápido)
 * **Toasts/Notificaciones:** [Sonner](https://sonner.emrebunar.com/) (Componente Toast elegante y accesible)
 
-*(Considera añadir badges para cada tecnología si quieres que visualmente sea más atractivo. Puedes generarlos en sitios como shields.io)*
-
 ## 🚀 Empezando
 
-*(Aquí podrías añadir una pequeña sección explicando cómo clonar el repo, instalar dependencias y correr el proyecto localmente. Algo como:)*
 
 1.  Clona el repositorio: git clone [[URL_DEL_REPOSITORIO]](https://github.com/TobiasOnandia/blog.git)
 2.  Instala las dependencias: pnpm install (o npm install, yarn install)
@@ -41,5 +38,14 @@ Este proyecto ha sido construido utilizando un stack moderno y potente:
 
 Los tests unitarios se ejecutan con Vitest. Puedes correrlos con el comando:
 
-```bash
 pnpm test
+
+Contribuyendo:
+¡Las contribuciones son bienvenidas! Si deseas mejorar este proyecto, por favor haz un fork del repositorio y crea un Pull Request.
+
+Licencia
+Este proyecto está bajo la Licencia [Tu Licencia, ej. MIT]. Consulta el archivo https://www.google.com/search?q=LICENSE para más detalles.
+
+¡Esperamos que disfrutes usando y explorando BlogApp! Si tienes alguna pregunta, no dudes en abrir un issue.
+
+```bash
